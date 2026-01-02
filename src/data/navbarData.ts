@@ -16,7 +16,7 @@ export const navbarLinks: NavbarLink[] = [
 export const navbarConfig = {
   logo: {
     firstName: "HERITIANA",
-    lastName: "Julienbb",
+    lastName: "Julien",
   },
   buttons: {
     contact: "Contacter",

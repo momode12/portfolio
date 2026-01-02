@@ -56,7 +56,7 @@ const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
         {/* Logo - adapté aux petits écrans */}
         <motion.div
-          className="text-lg sm:text-xl font-bold flex items-center cursor-pointer select-none shrink-0"
+          className="text-base sm:text-lg md:text-xl font-bold flex items-center cursor-pointer select-none max-w-[60vw] overflow-hidden text-ellipsis whitespace-nowrap"
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -169,6 +169,7 @@ const Navbar: React.FC<NavbarProps> = ({
           >
             {menuOpen ? (
               <svg
+                xmlns="http://www.w3.org/2000/svg"
                 className="h-7 w-7 text-green-600 dark:text-green-400"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -179,6 +180,7 @@ const Navbar: React.FC<NavbarProps> = ({
               </svg>
             ) : (
               <svg
+                xmlns="http://www.w3.org/2000/svg"
                 className="h-7 w-7 text-green-600 dark:text-green-400"
                 fill="none"
                 viewBox="0 0 24 24"
