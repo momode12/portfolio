@@ -18,22 +18,17 @@ const Navbar: React.FC<NavbarProps> = ({
   const [showTooltip, setShowTooltip] = useState(false);
   const firstMenuItemRef = useRef<HTMLButtonElement>(null);
 
-  // Verrouillage du scroll quand le menu mobile est ouvert (compatible iOS/Android)
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
       document.body.style.position = "fixed";
       document.body.style.width = "100%";
-      // Focus sur le premier item pour l'accessibilité
-      setTimeout(() => {
-        firstMenuItemRef.current?.focus();
-      }, 100);
+      setTimeout(() => firstMenuItemRef.current?.focus(), 100);
     } else {
       document.body.style.overflow = "";
       document.body.style.position = "";
       document.body.style.width = "";
     }
-
     return () => {
       document.body.style.overflow = "";
       document.body.style.position = "";
@@ -41,17 +36,12 @@ const Navbar: React.FC<NavbarProps> = ({
     };
   }, [menuOpen]);
 
-  // Scroll fluide vers une section avec compensation de la hauteur de la navbar
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       const navbarHeight = document.querySelector("nav")?.offsetHeight || 80;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY - navbarHeight;
-
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth",
-      });
+      window.scrollTo({ top: elementPosition, behavior: "smooth" });
     }
     setMenuOpen(false);
   };
@@ -64,9 +54,9 @@ const Navbar: React.FC<NavbarProps> = ({
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo - adapté aux petits écrans */}
         <motion.div
-          className="text-lg sm:text-xl font-bold flex items-center cursor-pointer select-none"
+          className="text-lg sm:text-xl font-bold flex items-center cursor-pointer select-none shrink-0"
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -81,7 +71,7 @@ const Navbar: React.FC<NavbarProps> = ({
           <span className="text-black dark:text-white">
             {navbarConfig.logo.firstName}
           </span>
-          <span className="ml-2 text-green-600 dark:text-green-400">
+          <span className="ml-1 text-green-600 dark:text-green-400">
             {navbarConfig.logo.lastName}
           </span>
         </motion.div>
@@ -91,10 +81,7 @@ const Navbar: React.FC<NavbarProps> = ({
           className="hidden md:flex items-center space-x-4 lg:space-x-6 text-gray-700 dark:text-gray-300 font-medium"
           initial="hidden"
           animate="visible"
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.08 } },
-          }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
         >
           {navbarLinks.map((link) => (
             <motion.li key={link.id}>
@@ -102,10 +89,9 @@ const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => scrollToSection(link.id)}
                 className={`
                   px-3 py-2 rounded-lg transition duration-200
-                  ${
-                    activeSection === link.id
-                      ? "bg-gray-200 dark:bg-gray-700 text-green-600 dark:text-green-400 font-semibold"
-                      : "hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-green-600 dark:hover:text-green-400"
+                  ${activeSection === link.id
+                    ? "bg-gray-200 dark:bg-gray-700 text-green-600 dark:text-green-400 font-semibold"
+                    : "hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-green-600 dark:hover:text-green-400"
                   }
                 `}
               >
@@ -122,7 +108,6 @@ const Navbar: React.FC<NavbarProps> = ({
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
         >
-          {/* Dark Mode avec Tooltip */}
           <div className="relative">
             <button
               onClick={toggleDarkMode}
@@ -159,44 +144,46 @@ const Navbar: React.FC<NavbarProps> = ({
           </button>
         </motion.div>
 
-        {/* Boutons Mobile : Dark Mode + Menu Hamburger */}
-        <div className="md:hidden flex items-center space-x-4">
+        {/* Boutons Mobile - Toujours visibles même sur très petit écran */}
+        <div className="md:hidden flex items-center space-x-3">
           {/* Dark Mode Mobile */}
           <button
             onClick={toggleDarkMode}
-            className="p-2.5 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition"
+            className="p-3 rounded-xl bg-gray-200/70 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition shadow-sm"
             aria-label={darkMode ? navbarConfig.tooltips.lightMode : navbarConfig.tooltips.darkMode}
           >
-            {darkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-gray-600" />}
+            {darkMode ? (
+              <Sun size={22} className="text-yellow-400" />
+            ) : (
+              <Moon size={22} className="text-gray-700" />
+            )}
           </button>
 
-          {/* Icône Menu Hamburger / Croix */}
+          {/* Menu Hamburger - GROS, VISIBLE, FACILE À TOUCHER */}
           <button
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="p-3 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="p-3 rounded-xl bg-gray-200/70 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
             aria-label={menuOpen ? navbarConfig.tooltips.closeMenu : navbarConfig.tooltips.openMenu}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
           >
             {menuOpen ? (
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-green-600 dark:text-green-400"
+                className="h-7 w-7 text-green-600 dark:text-green-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                strokeWidth={2}
+                strokeWidth={2.5}
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-green-600 dark:text-green-400"
+                className="h-7 w-7 text-green-600 dark:text-green-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                strokeWidth={2}
+                strokeWidth={2.5}
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" />
               </svg>
@@ -210,7 +197,7 @@ const Navbar: React.FC<NavbarProps> = ({
         {menuOpen && (
           <motion.div
             id="mobile-menu"
-            className="md:hidden bg-white dark:bg-gray-800 shadow-lg px-4 sm:px-6 py-6"
+            className="md:hidden bg-white dark:bg-gray-800 shadow-lg px-6 py-6"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -223,11 +210,10 @@ const Navbar: React.FC<NavbarProps> = ({
                     ref={index === 0 ? firstMenuItemRef : null}
                     onClick={() => scrollToSection(link.id)}
                     className={`
-                      w-full text-left px-4 py-3 rounded-lg transition
-                      ${
-                        activeSection === link.id
-                          ? "bg-gray-200 dark:bg-gray-700 text-green-600 dark:text-green-400 font-semibold"
-                          : "hover:bg-gray-100 dark:hover:bg-gray-700"
+                      w-full text-left px-5 py-3.5 rounded-xl text-lg transition
+                      ${activeSection === link.id
+                        ? "bg-gray-200 dark:bg-gray-700 text-green-600 dark:text-green-400 font-semibold"
+                        : "hover:bg-gray-100 dark:hover:bg-gray-700"
                       }
                     `}
                   >
@@ -238,7 +224,7 @@ const Navbar: React.FC<NavbarProps> = ({
               <li>
                 <button
                   onClick={() => scrollToSection("footer")}
-                  className="w-full px-6 py-3 bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white font-semibold rounded-lg transition"
+                  className="w-full px-6 py-4 bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white font-bold rounded-xl text-lg transition shadow-md"
                 >
                   {navbarConfig.buttons.contact}
                 </button>
