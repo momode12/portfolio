@@ -48,15 +48,15 @@ const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <motion.nav
-      className="w-full bg-white dark:bg-gray-800 shadow-md fixed top-0 z-50 transition-colors duration-300"
+      className="w-full bg-white dark:bg-gray-900 shadow-md fixed top-0 z-50 transition-colors duration-300"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-        {/* Logo - adapté aux petits écrans */}
+        {/* Logo - adapté aux petits écrans, sans troncature forcée */}
         <motion.div
-          className="text-base sm:text-lg md:text-xl font-bold flex items-center cursor-pointer select-none max-w-[60vw] overflow-hidden text-ellipsis whitespace-nowrap"
+          className="text-sm xs:text-base sm:text-lg md:text-xl font-bold flex items-center cursor-pointer select-none whitespace-nowrap"
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -115,7 +115,7 @@ const Navbar: React.FC<NavbarProps> = ({
               onMouseLeave={() => setShowTooltip(false)}
               onFocus={() => setShowTooltip(true)}
               onBlur={() => setShowTooltip(false)}
-              className="p-2.5 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition"
+              className="p-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
               aria-label={darkMode ? navbarConfig.tooltips.lightMode : navbarConfig.tooltips.darkMode}
             >
               {darkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-gray-600" />}
@@ -144,12 +144,12 @@ const Navbar: React.FC<NavbarProps> = ({
           </button>
         </motion.div>
 
-        {/* Boutons Mobile - Toujours visibles même sur très petit écran, avec espace garanti */}
-        <div className="md:hidden flex items-center space-x-3 flex-shrink-0 min-w-[80px]">
+        {/* Boutons Mobile - Visibles et adaptés dès le start */}
+        <div className="md:hidden flex items-center space-x-3 flex-shrink-0">
           {/* Dark Mode Mobile */}
           <button
             onClick={toggleDarkMode}
-            className="p-2 rounded-xl bg-gray-200/80 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition shadow-sm"
+            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-sm"
             aria-label={darkMode ? navbarConfig.tooltips.lightMode : navbarConfig.tooltips.darkMode}
           >
             {darkMode ? (
@@ -159,10 +159,10 @@ const Navbar: React.FC<NavbarProps> = ({
             )}
           </button>
 
-          {/* Menu Hamburger - GROS, VISIBLE, FACILE À TOUCHER */}
+          {/* Menu Hamburger */}
           <button
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="p-2 rounded-xl bg-gray-200/80 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
             aria-label={menuOpen ? navbarConfig.tooltips.closeMenu : navbarConfig.tooltips.openMenu}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
@@ -174,7 +174,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                strokeWidth={2.5}
+                strokeWidth={2}
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -185,7 +185,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                strokeWidth={2.5}
+                strokeWidth={2}
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
@@ -199,23 +199,23 @@ const Navbar: React.FC<NavbarProps> = ({
         {menuOpen && (
           <motion.div
             id="mobile-menu"
-            className="md:hidden bg-white dark:bg-gray-800 shadow-lg px-6 py-6"
+            className="md:hidden bg-white dark:bg-gray-900 shadow-lg px-4 py-4 transition-colors duration-300"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
           >
-            <ul className="flex flex-col space-y-4 text-gray-700 dark:text-gray-300 font-medium">
+            <ul className="flex flex-col space-y-3 text-gray-700 dark:text-gray-300 font-medium">
               {navbarLinks.map((link, index) => (
                 <li key={link.id}>
                   <button
                     ref={index === 0 ? firstMenuItemRef : null}
                     onClick={() => scrollToSection(link.id)}
                     className={`
-                      w-full text-left px-5 py-3.5 rounded-xl text-lg transition
-                      ${activeSection === link.id
-                        ? "bg-gray-200 dark:bg-gray-700 text-green-600 dark:text-green-400 font-semibold"
-                        : "hover:bg-gray-100 dark:hover:bg-gray-700"
+                      transition duration-150 ease-in-out rounded-lg px-3 py-2 block w-full text-left
+                      ${
+                        activeSection === link.id
+                          ? "bg-gray-200 dark:bg-gray-800 text-green-600 dark:text-green-400 font-semibold"
+                          : "bg-transparent hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-green-600 dark:hover:text-green-400"
                       }
                     `}
                   >
@@ -225,8 +225,9 @@ const Navbar: React.FC<NavbarProps> = ({
               ))}
               <li>
                 <button
+                  className="w-full px-4 py-2 rounded-lg font-semibold transition
+                  bg-green-500 text-white hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700"
                   onClick={() => scrollToSection("footer")}
-                  className="w-full px-6 py-4 bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white font-bold rounded-xl text-lg transition shadow-md"
                 >
                   {navbarConfig.buttons.contact}
                 </button>

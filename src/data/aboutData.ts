@@ -15,7 +15,7 @@ export const aboutTexts = {
   
   // Badges
   badges: {
-    student: "Étudiant en M1 à l'ENI Fianarantsoa",
+    student: "Étudiant à l'ENI Fianarantsoa",
     developer: "Développeur Full Stack",
   },
   
