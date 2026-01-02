@@ -103,7 +103,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
         {/* Boutons Desktop */}
         <motion.div
-          className="hidden md:flex items-center space-x-4"
+          className="hidden md:flex items-center space-x-4 flex-shrink-0"
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
@@ -144,25 +144,25 @@ const Navbar: React.FC<NavbarProps> = ({
           </button>
         </motion.div>
 
-        {/* Boutons Mobile - Toujours visibles même sur très petit écran */}
-        <div className="md:hidden flex items-center space-x-3">
+        {/* Boutons Mobile - Toujours visibles même sur très petit écran, avec espace garanti */}
+        <div className="md:hidden flex items-center space-x-3 flex-shrink-0 min-w-[80px]">
           {/* Dark Mode Mobile */}
           <button
             onClick={toggleDarkMode}
-            className="p-3 rounded-xl bg-gray-200/70 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition shadow-sm"
+            className="p-2 rounded-xl bg-gray-200/80 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition shadow-sm"
             aria-label={darkMode ? navbarConfig.tooltips.lightMode : navbarConfig.tooltips.darkMode}
           >
             {darkMode ? (
-              <Sun size={22} className="text-yellow-400" />
+              <Sun size={20} className="text-yellow-400" />
             ) : (
-              <Moon size={22} className="text-gray-700" />
+              <Moon size={20} className="text-gray-700" />
             )}
           </button>
 
           {/* Menu Hamburger - GROS, VISIBLE, FACILE À TOUCHER */}
           <button
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="p-3 rounded-xl bg-gray-200/70 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="p-2 rounded-xl bg-gray-200/80 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
             aria-label={menuOpen ? navbarConfig.tooltips.closeMenu : navbarConfig.tooltips.openMenu}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
@@ -170,7 +170,7 @@ const Navbar: React.FC<NavbarProps> = ({
             {menuOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-7 w-7 text-green-600 dark:text-green-400"
+                className="h-6 w-6 text-green-600 dark:text-green-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -181,13 +181,13 @@ const Navbar: React.FC<NavbarProps> = ({
             ) : (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-7 w-7 text-green-600 dark:text-green-400"
+                className="h-6 w-6 text-green-600 dark:text-green-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth={2.5}
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
           </button>
