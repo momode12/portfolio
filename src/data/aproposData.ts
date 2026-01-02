@@ -9,7 +9,7 @@ export const aproposTexts = {
   intro2:
     "Je m'intéresse également à la science des données, à l’analyse de données ainsi qu’à l’automatisation, domaines que j’explore avec enthousiasme. J’adore apprendre de nouvelles technologies et relever des défis complexes.",
   conclusion:
-    "Mon ambition est de contribuer à la transformation numérique à travers des solutions logicielles modernes et orientées données.",
+    "Soutenir la transformation numérique par le développement de solutions logicielles modernes.",
 };
 
 export const skills = [

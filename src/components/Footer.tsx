@@ -48,8 +48,8 @@ const Footer: React.FC<FooterProps> = () => {
   };
 
   return (
-    <div className="py-20 sm:py-24 bg-gradient-to-b from-white via-green-50 to-white 
-                 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 transition-colors duration-500 ">
+    <div className="pt-0 pb-20 sm:pt-0 sm:pb-24 bg-gradient-to-b from-white via-green-50 to-white 
+                 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 transition-colors duration-500  ">
       <div className="absolute top-0 left-0 w-96 h-96 bg-green-300/10 dark:bg-green-400/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-300/10 dark:bg-blue-400/5 rounded-full blur-3xl" />
 

@@ -34,9 +34,8 @@ const Projets: React.FC<ProjectProps> = () => {
   return (
     <section
       id="projet"
-      className="py-20 sm:py-24 px-4 bg-gradient-to-b from-white via-green-50 to-white 
-                 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 
-                 transition-colors duration-500 "
+      className="pt-0 pb-20 sm:pt-0 sm:pb-24 bg-gradient-to-b from-white via-green-50 to-white 
+                 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 transition-colors duration-500  "
     >
       <div className="max-w-7xl mx-auto">
         <motion.h2

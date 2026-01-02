@@ -19,20 +19,20 @@ const App = () => {
   const sectionClass = "mt-[-20px] pt-[20px]";
 
   /** ============================
-   *  SCROLL + URL SYNC
+   *  DÉTECTION DU SCROLL (SANS URL)
    * ============================ */
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = [
-        "accueil",
-        "apropos",
-        "projet",
-        "competence",
-        "experience",
-        "service",
-        "footer",
-      ];
+    const sections = [
+      "accueil",
+      "apropos",
+      "projet",
+      "competence",
+      "experience",
+      "service",
+      "footer",
+    ];
 
+    const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -43,10 +43,7 @@ const App = () => {
         const height = element.offsetHeight;
 
         if (scrollPosition >= top && scrollPosition < top + height) {
-          if (activeSection !== sectionId) {
-            setActiveSection(sectionId);
-            window.history.pushState(null, "", `/${sectionId}`);
-          }
+          setActiveSection(sectionId);
           break;
         }
       }
@@ -56,41 +53,14 @@ const App = () => {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeSection]);
-
-  /** ============================
-   *  NAVIGATION BACK / FORWARD
-   * ============================ */
-  useEffect(() => {
-    const handlePopState = () => {
-      const path = window.location.pathname.slice(1) || "accueil";
-      const element = document.getElementById(path);
-
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        setActiveSection(path);
-      }
-    };
-
-    window.addEventListener("popstate", handlePopState);
-
-    const initialPath = window.location.pathname.slice(1) || "accueil";
-    const initialElement = document.getElementById(initialPath);
-
-    if (initialElement) {
-      setTimeout(() => {
-        initialElement.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-      setActiveSection(initialPath);
-    }
-
-    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
   /** ============================
    *  DARK MODE
    * ============================ */
-  const toggleDarkMode = () => setDarkMode((prev) => !prev);
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => !prev);
+  };
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);

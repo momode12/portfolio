@@ -29,8 +29,8 @@ const Experience: React.FC<ExperienceProps> = () => {
   return (
     <section
       id="experience"
-      className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-white via-green-50 to-white 
-                 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 transition-colors duration-500 overflow-hidden"
+      className="pt-0 pb-20 sm:pt-0 sm:pb-24 bg-gradient-to-b from-white via-green-50 to-white 
+                 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 transition-colors duration-500 "
     >
       {/* Éléments décoratifs */}
       <div className="absolute top-20 right-10 w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72 bg-green-200/20 dark:bg-green-500/5 rounded-full blur-3xl" />

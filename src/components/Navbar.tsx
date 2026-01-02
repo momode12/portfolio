@@ -37,13 +37,22 @@ const Navbar: React.FC<NavbarProps> = ({
   }, [menuOpen]);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const navbarHeight = document.querySelector("nav")?.offsetHeight || 80;
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY - navbarHeight;
-      window.scrollTo({ top: elementPosition, behavior: "smooth" });
-    }
     setMenuOpen(false);
+
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (!element) return;
+
+      const navbarHeight = document.querySelector("nav")?.offsetHeight || 80;
+
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY - navbarHeight;
+
+      window.scrollTo({
+        top: elementPosition,
+        behavior: "smooth",
+      });
+    }, 300); // délai = temps de fermeture du menu
   };
 
   return (
@@ -81,7 +90,10 @@ const Navbar: React.FC<NavbarProps> = ({
           className="hidden md:flex items-center space-x-4 lg:space-x-6 text-gray-700 dark:text-gray-300 font-medium"
           initial="hidden"
           animate="visible"
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.08 } },
+          }}
         >
           {navbarLinks.map((link) => (
             <motion.li key={link.id}>
@@ -89,9 +101,10 @@ const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => scrollToSection(link.id)}
                 className={`
                   px-3 py-2 rounded-lg transition duration-200
-                  ${activeSection === link.id
-                    ? "bg-gray-200 dark:bg-gray-700 text-green-600 dark:text-green-400 font-semibold"
-                    : "hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-green-600 dark:hover:text-green-400"
+                  ${
+                    activeSection === link.id
+                      ? "bg-gray-200 dark:bg-gray-700 text-green-600 dark:text-green-400 font-semibold"
+                      : "hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-green-600 dark:hover:text-green-400"
                   }
                 `}
               >
@@ -116,9 +129,17 @@ const Navbar: React.FC<NavbarProps> = ({
               onFocus={() => setShowTooltip(true)}
               onBlur={() => setShowTooltip(false)}
               className="p-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-              aria-label={darkMode ? navbarConfig.tooltips.lightMode : navbarConfig.tooltips.darkMode}
+              aria-label={
+                darkMode
+                  ? navbarConfig.tooltips.lightMode
+                  : navbarConfig.tooltips.darkMode
+              }
             >
-              {darkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-gray-600" />}
+              {darkMode ? (
+                <Sun size={20} className="text-yellow-400" />
+              ) : (
+                <Moon size={20} className="text-gray-600" />
+              )}
             </button>
 
             <AnimatePresence>
@@ -129,7 +150,9 @@ const Navbar: React.FC<NavbarProps> = ({
                   exit={{ opacity: 0, y: -5 }}
                   className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gray-800 dark:bg-gray-700 text-white text-xs rounded-lg whitespace-nowrap shadow-lg z-50"
                 >
-                  {darkMode ? navbarConfig.tooltips.lightMode : navbarConfig.tooltips.darkMode}
+                  {darkMode
+                    ? navbarConfig.tooltips.lightMode
+                    : navbarConfig.tooltips.darkMode}
                   <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 dark:bg-gray-700 rotate-45" />
                 </motion.div>
               )}
@@ -150,7 +173,11 @@ const Navbar: React.FC<NavbarProps> = ({
           <button
             onClick={toggleDarkMode}
             className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-sm"
-            aria-label={darkMode ? navbarConfig.tooltips.lightMode : navbarConfig.tooltips.darkMode}
+            aria-label={
+              darkMode
+                ? navbarConfig.tooltips.lightMode
+                : navbarConfig.tooltips.darkMode
+            }
           >
             {darkMode ? (
               <Sun size={20} className="text-yellow-400" />
@@ -163,7 +190,11 @@ const Navbar: React.FC<NavbarProps> = ({
           <button
             onClick={() => setMenuOpen((prev) => !prev)}
             className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-            aria-label={menuOpen ? navbarConfig.tooltips.closeMenu : navbarConfig.tooltips.openMenu}
+            aria-label={
+              menuOpen
+                ? navbarConfig.tooltips.closeMenu
+                : navbarConfig.tooltips.openMenu
+            }
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
           >
@@ -176,7 +207,11 @@ const Navbar: React.FC<NavbarProps> = ({
                 stroke="currentColor"
                 strokeWidth={2}
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             ) : (
               <svg
@@ -187,7 +222,11 @@ const Navbar: React.FC<NavbarProps> = ({
                 stroke="currentColor"
                 strokeWidth={2}
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             )}
           </button>
