@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Globe, ArrowUpRight } from "lucide-react";
+import { Github, Youtube, ArrowUpRight } from "lucide-react";
 import { projects } from "../data/projectData";
 import { Sparkles } from "lucide-react";
 
@@ -185,11 +185,11 @@ const Projets: React.FC<ProjectProps> = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="flex-1 min-w-[120px] xs:min-w-[140px] flex items-center justify-center gap-1.5 xs:gap-2 px-3 xs:px-4 sm:px-5 py-2 xs:py-2.5 sm:py-3 text-xs xs:text-sm font-semibold 
-                                 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg xs:rounded-xl
-                                 hover:from-green-600 hover:to-green-700 
+                                 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg xs:rounded-xl
+                                 hover:from-red-600 hover:to-red-700 
                                  transition-all shadow-lg hover:shadow-xl group/btn"
                     >
-                      <Globe size={16} className="xs:w-[18px] xs:h-[18px] flex-shrink-0" />
+                      <Youtube size={16} className="xs:w-[18px] xs:h-[18px] flex-shrink-0" />
                       <span className="truncate">Voir la démo</span>
                       <ArrowUpRight
                         size={14}
