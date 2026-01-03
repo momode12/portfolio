@@ -39,7 +39,7 @@ const About: React.FC<AboutProps> = () => {
   return (
     <section
       id="accueil"
-      className="py-8 xs:py-10 sm:py-16 md:py-20 lg:py-24 px-2 xs:px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-green-50 to-white 
+      className="pt-24 pb-6 xs:pt-28 xs:pb-8 sm:py-16 md:py-20 lg:py-24 px-2 xs:px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-green-50 to-white 
                  dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 
                  transition-colors duration-500 overflow-hidden"
     >
@@ -50,7 +50,7 @@ const About: React.FC<AboutProps> = () => {
         style={{ animationDelay: "1s" }}
       />
 
-      <div className="flex items-center justify-center py-2 px-2 sm:px-4 relative z-10">
+      <div className="flex items-center justify-center relative z-10">
         <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-6 xs:gap-8 sm:gap-10 md:gap-12 items-center">
           {/* Section Image */}
           <motion.div
@@ -67,7 +67,7 @@ const About: React.FC<AboutProps> = () => {
                 <img
                   src={profilePic}
                   alt={aboutTexts.imageAlt}
-                  className="w-40 h-40 xs:w-48 xs:h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-4 border-white dark:border-gray-700 transition-all duration-500 group-hover:scale-105 group-hover:border-green-400 dark:group-hover:border-green-500 relative z-10"
+                  className="w-45 h-45 xs:w-40 xs:h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-4 border-white dark:border-gray-700 transition-all duration-500 group-hover:scale-105 group-hover:border-green-400 dark:group-hover:border-green-500 relative z-10"
                 />
 
                 {/* Badge animé */}
