@@ -25,7 +25,7 @@ export const projects: Project[] = [
     stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
     images: [php],
     github: "https://github.com/SoutenanceL2/gestion_de_soutenance_L2",
-    demo: "#",
+    demo: "https://youtu.be/2-bLhJ5stz0",
   },
   {
     title: "Gestion de Stock de l'Imprimerie Nationale",
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     stack: ["React", "Express.js", "MySQL"],
     images: [finance1, finance2],
     github: "https://github.com/orgs/StageL2/repositories",
-    demo: "#",
+    demo: "https://youtu.be/WIud454PejA",
   },
   {
     title: "Gestion de Présence et d’Absence des élèves (CPE Ambatomena)",
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     stack: ["React.js", "React Native", "Express.js", "PostgreSQL"],
     images: [cpe1, cpe2, cpe3],
     github: "https://github.com/orgs/StageL3/repositories",
-    demo: "#",
+    demo: "https://youtu.be/XMRRvtrTqr8",
   },
   {
     title: "Gestion d’Événements",
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     stack: ["React.js", "React Native", "Flask", "PostgreSQL"],
     images: [fete1, fete2],
     github: "https://github.com/orgs/GestionFete/repositories",
-    demo: "#",
+    demo: "https://youtu.be/93BpuWzdH8U",
   },
   {
     title: "Mon portfolio",
@@ -57,6 +57,6 @@ export const projects: Project[] = [
     stack: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     images: [portfolio1, portfolio2],
     github: "https://github.com/momode12/portfolio",
-    demo: "#",
+    demo: "https://youtu.be/mngjxN3l8dc",
   },
 ];
