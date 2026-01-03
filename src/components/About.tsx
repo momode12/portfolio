@@ -39,7 +39,7 @@ const About: React.FC<AboutProps> = () => {
   return (
     <section
       id="accueil"
-      className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-green-50 to-white 
+      className="py-8 xs:py-10 sm:py-16 md:py-20 lg:py-24 px-2 xs:px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-green-50 to-white 
                  dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 
                  transition-colors duration-500 overflow-hidden"
     >
@@ -51,7 +51,7 @@ const About: React.FC<AboutProps> = () => {
       />
 
       <div className="flex items-center justify-center py-2 px-2 sm:px-4 relative z-10">
-        <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
+        <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-6 xs:gap-8 sm:gap-10 md:gap-12 items-center">
           {/* Section Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -67,32 +67,32 @@ const About: React.FC<AboutProps> = () => {
                 <img
                   src={profilePic}
                   alt={aboutTexts.imageAlt}
-                  className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-4 border-white dark:border-gray-700 transition-all duration-500 group-hover:scale-105 group-hover:border-green-400 dark:group-hover:border-green-500 relative z-10"
+                  className="w-40 h-40 xs:w-48 xs:h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-4 border-white dark:border-gray-700 transition-all duration-500 group-hover:scale-105 group-hover:border-green-400 dark:group-hover:border-green-500 relative z-10"
                 />
 
                 {/* Badge animé */}
                 <motion.div
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 bg-gradient-to-br from-green-500 to-green-600 text-white p-3 sm:p-4 rounded-full shadow-xl z-20"
+                  className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 bg-gradient-to-br from-green-500 to-green-600 text-white p-2 xs:p-3 sm:p-4 rounded-full shadow-xl z-20"
                 >
-                  <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
+                  <GraduationCap className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                 </motion.div>
               </div>
             </div>
 
             {/* Badges */}
-            <div className="mt-6 sm:mt-8 flex flex-wrap gap-2 sm:gap-3 justify-center md:justify-start">
+            <div className="mt-4 xs:mt-5 sm:mt-6 md:mt-8 flex flex-wrap gap-2 sm:gap-3 justify-center md:justify-start">
               <motion.span
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-green-100 to-green-200 dark:from-green-900 dark:to-green-800 text-green-700 dark:text-green-300 rounded-full text-xs sm:text-sm font-bold flex items-center gap-1.5 sm:gap-2 shadow-lg border border-green-200 dark:border-green-700 cursor-default"
+                className="px-3 xs:px-4 sm:px-5 py-1.5 xs:py-2 sm:py-2.5 bg-gradient-to-r from-green-100 to-green-200 dark:from-green-900 dark:to-green-800 text-green-700 dark:text-green-300 rounded-full text-xs sm:text-sm font-bold flex items-center gap-1.5 sm:gap-2 shadow-lg border border-green-200 dark:border-green-700 cursor-default"
               >
-                <GraduationCap className="w-4 h-4 sm:w-[18px] sm:h-[18px]" /> {aboutTexts.badges.student}
+                <GraduationCap className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-[18px] sm:h-[18px]" /> {aboutTexts.badges.student}
               </motion.span>
 
               <motion.span
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 text-blue-700 dark:text-blue-300 rounded-full text-xs sm:text-sm font-bold shadow-lg border border-blue-200 dark:border-blue-700 cursor-default"
+                className="px-3 xs:px-4 sm:px-5 py-1.5 xs:py-2 sm:py-2.5 bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 text-blue-700 dark:text-blue-300 rounded-full text-xs sm:text-sm font-bold shadow-lg border border-blue-200 dark:border-blue-700 cursor-default"
               >
                 {aboutTexts.badges.developer}
               </motion.span>
@@ -104,18 +104,18 @@ const About: React.FC<AboutProps> = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-4 sm:space-y-5 md:space-y-6 order-2 md:order-2 text-center md:text-left"
+            className="space-y-3 xs:space-y-4 sm:space-y-5 md:space-y-6 order-2 md:order-2 text-center md:text-left"
           >
             {/* Nom avec effet */}
-            <div className="space-y-2 sm:space-y-3">
+            <div className="space-y-1.5 xs:space-y-2 sm:space-y-3">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex items-center gap-2 justify-center md:justify-start flex-wrap"
+                className="flex items-center gap-1.5 xs:gap-2 justify-center md:justify-start flex-wrap"
               >
-                <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 dark:text-green-400" />
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+                <Sparkles className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 text-green-500 dark:text-green-400 flex-shrink-0" />
+                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
                   {aboutTexts.name}{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-600 dark:from-green-400 dark:to-green-500">
                     {aboutTexts.surname}
@@ -125,7 +125,7 @@ const About: React.FC<AboutProps> = () => {
             </div>
 
             {/* Typewriter */}
-            <div className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-medium h-7 sm:h-8 min-h-[28px] sm:min-h-[32px]">
+            <div className="text-base xs:text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-medium h-6 xs:h-7 sm:h-8 min-h-[24px] xs:min-h-[28px] sm:min-h-[32px]">
               <Typewriter
                 words={expertises}
                 loop={true}
@@ -137,57 +137,37 @@ const About: React.FC<AboutProps> = () => {
               />
             </div>
 
-            <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto md:mx-0 text-justify hyphens-auto">
-              {aboutTexts.description.intro}{" "}
-              <span className="text-green-600 dark:text-green-400 font-semibold">
-                {aboutTexts.description.fullStack}
-              </span>{" "}
-              et{" "}
-              <span className="text-green-600 dark:text-green-400 font-semibold">
-                {aboutTexts.description.dataEngineering}
-              </span>
-              . {aboutTexts.description.middle}{" "}
-              <span className="text-green-600 dark:text-green-400 font-semibold">
-                {aboutTexts.description.specializations.dataEng}
-              </span>
-              ,{" "}
-              <span className="text-green-600 dark:text-green-400 font-semibold">
-                {aboutTexts.description.specializations.ai}
-              </span>{" "}
-              et{" "}
-              <span className="text-green-600 dark:text-green-400 font-semibold">
-                {aboutTexts.description.specializations.software}
-              </span>
-              .
+            <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto md:mx-0 text-left md:text-justify md:hyphens-auto">
+              {aboutTexts.description.intro} <span className="text-green-600 dark:text-green-400 font-semibold">{aboutTexts.description.fullStack}</span> et <span className="text-green-600 dark:text-green-400 font-semibold">{aboutTexts.description.dataEngineering}</span>. {aboutTexts.description.middle} <span className="text-green-600 dark:text-green-400 font-semibold">{aboutTexts.description.specializations.dataEng}</span>, <span className="text-green-600 dark:text-green-400 font-semibold">{aboutTexts.description.specializations.ai}</span> et <span className="text-green-600 dark:text-green-400 font-semibold">{aboutTexts.description.specializations.software}</span>.
             </p>
 
             {/* Boutons */}
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-3 sm:pt-4 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-2 xs:gap-3 sm:gap-4 pt-2 xs:pt-3 sm:pt-4 justify-center md:justify-start">
               <motion.a
                 href={cvFile}
                 download="CV_Julien.pdf"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 text-sm sm:text-base"
+                className="flex items-center justify-center gap-1.5 xs:gap-2 px-5 xs:px-6 sm:px-8 py-2.5 xs:py-3 sm:py-4 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold rounded-lg xs:rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 text-xs xs:text-sm sm:text-base"
               >
-                <Download className="w-4 h-4 sm:w-5 sm:h-5" /> {aboutTexts.buttons.downloadCV}
+                <Download className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 flex-shrink-0" /> {aboutTexts.buttons.downloadCV}
               </motion.a>
 
               <motion.button
                 onClick={() => scrollToSection("apropos")}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-bold rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-green-600 dark:border-green-500 hover:bg-green-50 dark:hover:bg-gray-700 cursor-pointer text-sm sm:text-base"
+                className="flex items-center justify-center gap-1.5 xs:gap-2 px-5 xs:px-6 sm:px-8 py-2.5 xs:py-3 sm:py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-bold rounded-lg xs:rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-green-600 dark:border-green-500 hover:bg-green-50 dark:hover:bg-gray-700 cursor-pointer text-xs xs:text-sm sm:text-base"
               >
                 {aboutTexts.buttons.learnMore}{" "}
                 <ChevronRight
-                  className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
+                  className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0"
                 />
               </motion.button>
             </div>
 
             {/* Liens sociaux */}
-            <div className="flex gap-3 sm:gap-4 pt-4 sm:pt-6 flex-wrap justify-center md:justify-start">
+            <div className="flex gap-2 xs:gap-3 sm:gap-4 pt-3 xs:pt-4 sm:pt-6 flex-wrap justify-center md:justify-start">
               {(socialLinks as SocialLink[]).map((social, index) => {
                 const Icon = social.icon;
                 return (
@@ -198,10 +178,10 @@ const About: React.FC<AboutProps> = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.2, rotate: 5, y: -3 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700"
+                    className="w-9 h-9 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700"
                     style={{ color: social.color }}
                   >
-                    <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <Icon className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
                   </motion.a>
                 );
               })}
