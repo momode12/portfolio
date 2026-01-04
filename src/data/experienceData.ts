@@ -75,7 +75,8 @@ export const experiences: ExperienceItem[] = [
     certificate: pnudCert,
   },
   {
-    title: "Application de gestion de présence et d'absence des élèves par scan de QR Code",
+    title:
+      "Application de gestion de présence et d'absence des élèves par scan de QR Code",
     company: "Lycée CPE Ambatomena Fianarantsoa",
     period: "Août 2024 - Octobre 2024",
     description:
@@ -87,7 +88,8 @@ export const experiences: ExperienceItem[] = [
   },
   {
     title: "Développement d'un logiciel de gestion de stock",
-    company: "Direction Générale du Budget et des Finances (Imprimerie Nationale)",
+    company:
+      "Direction Générale du Budget et des Finances (Imprimerie Nationale)",
     period: "Août 2023 - Octobre 2023",
     description:
       "Création d'un système complet de gestion de stock avec React.js, Express.js et MySQL, permettant le suivi des entrées et sorties de produits.",
@@ -116,8 +118,22 @@ export const educations: EducationItem[] = [
     gradientTo: "to-pink-600",
   },
   {
+    title: "Formation en Robotique",
+    institution: "Orange Digitale Center Fianarantsoa",
+    period: "Novembre 2025",
+    description:
+      "Formation pratique en robotique axée sur l’électronique, la programmation de microcontrôleurs et la conception de projets robotiques innovants.",
+    mention: "Formation certifiante",
+    icon: Brain,
+    color: "text-orange-500",
+    gradientFrom: "from-orange-500",
+    gradientTo: "to-orange-600",
+  },
+
+  {
     title: "Formation Data Science",
-    institution: "Idea Academy à l'Ecole Nationale d'Informatique Fianarantsoa (ENI)",
+    institution:
+      "Idea Academy à l'Ecole Nationale d'Informatique Fianarantsoa (ENI)",
     period: "Août 2024",
     description:
       "Formation intensive en Data Science : analyse de données, machine learning et visualisation avec KNIME Platforme Analytics (Outils no-code).",
@@ -174,8 +190,7 @@ export const educations: EducationItem[] = [
     color: "text-blue-500",
     gradientFrom: "from-blue-500",
     gradientTo: "to-blue-600",
-    transcript: releveTranscript, 
+    transcript: releveTranscript,
     certificate: bacCert,
-    
   },
 ];
