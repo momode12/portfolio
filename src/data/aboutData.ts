@@ -50,7 +50,7 @@ export const expertises: string[] = [
 export const socialLinks: SocialLink[] = [
   { icon: FaFacebookF, url: "https://www.facebook.com/HeritianaJuli", color: "#1877F2" },
   { icon: FaWhatsapp, url: "https://wa.me/0344092549", color: "#25D366" },
-  { icon: FaLinkedinIn, url: "https://www.linkedin.com/in/heritiana-julien-62b5812aa/", color: "#0A66C2" },
+  { icon: FaLinkedinIn, url: "https://www.linkedin.com/in/heritiana-julien-0a0132358/", color: "#0A66C2" },
   { icon: FaInstagram, url: "https://www.instagram.com/heritiana586/", color: "#E1306C" },
   { icon: FaGithub, url: "https://github.com/momode12", color: "#181717" },
   { icon: FaTwitter, url: "https://x.com/Heritiana586", color: "#1DA1F2" },
