@@ -19,6 +19,7 @@ import financeCert from "../assets/Certificat_diplome/stage_L2.jpg";
 import bacCert from "../assets/Certificat_diplome/Bacc.jpg";
 import licenceCert from "../assets/Certificat_diplome/licence.jpg";
 import releveTranscript from "../assets/Certificat_diplome/releve.jpg";
+import releveL3Transcript from "../assets/Certificat_diplome/releve_L3.jpg";
 
 export interface ExperienceItem {
   title: string;
@@ -155,6 +156,7 @@ export const educations: EducationItem[] = [
     color: "text-orange-500",
     gradientFrom: "from-orange-500",
     gradientTo: "to-orange-600",
+    transcript: releveL3Transcript,
     certificate: licenceCert,
   },
   {

@@ -316,8 +316,8 @@ const Experience: React.FC<ExperienceProps> = () => {
 
                       {/* Boutons en bas */}
                       <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-                        {edu.title.toLowerCase().includes("baccalauréat") &&
-                          edu.transcript && (
+                      { (edu.title.toLowerCase().includes("baccalauréat") ||
+                         edu.title.toLowerCase().includes("licence 3")) && (
                             <a
                               href={edu.transcript}
                               download
