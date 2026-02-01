@@ -20,6 +20,7 @@ import bacCert from "../assets/Certificat_diplome/Bacc.jpg";
 import licenceCert from "../assets/Certificat_diplome/licence.jpg";
 import releveTranscript from "../assets/Certificat_diplome/releve.jpg";
 import releveL3Transcript from "../assets/Certificat_diplome/releve_L3.jpg";
+import ODC_robot from "../assets/Certificat_diplome/HERITIANA Julien - Formation1.pdf";
 
 export interface ExperienceItem {
   title: string;
@@ -129,6 +130,7 @@ export const educations: EducationItem[] = [
     color: "text-orange-500",
     gradientFrom: "from-orange-500",
     gradientTo: "to-orange-600",
+    certificate: ODC_robot,
   },
 
   {
