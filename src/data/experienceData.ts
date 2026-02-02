@@ -140,7 +140,7 @@ export const educations: EducationItem[] = [
     period: "Août 2024",
     description:
       "Formation intensive en Data Science : analyse de données, machine learning et visualisation avec KNIME Platforme Analytics (Outils no-code).",
-    mention: "Certificat obtenu",
+    mention: "Formation certifiante",
     icon: Brain,
     color: "text-cyan-500",
     gradientFrom: "from-cyan-500",
