@@ -8,9 +8,9 @@ import portfolio1 from "../assets/project/portfolio1.png";
 import portfolio2 from "../assets/project/portfolio2.png";
 import finance1 from "../assets/project/finance1.png";
 import finance2 from "../assets/project/finance2.png";
-import grossite1 from "../assets/project/grossite_1.png";
-import grossite2 from "../assets/project/grossite_2.png";
-import grossite3 from "../assets/project/grossite_3.png";
+import grossiste1 from "../assets/project/grossiste_1.png";
+import grossiste2 from "../assets/project/grossiste_2.png";
+import grossiste3 from "../assets/project/grossiste_3.png";
 
 export interface Project {
   title: string;
@@ -26,7 +26,7 @@ export const projects: Project[] = [
     title: "Gestion de vente",
     desc: "Application web pour la gestion de stock et de ventes dans un frossiste PPN à Mananjary.",
     stack: ["React.js(tsx)","Tailwind CSS", "Flask", "PostgreSQL"],
-    images: [grossite1, grossite2, grossite3],
+    images: [grossiste1, grossiste2, grossiste3],
     github: "https://github.com/momode12/Grossiste_PPN",
     demo: "https://vente-pi.vercel.app/",
   },
