@@ -56,7 +56,7 @@ export const experiences: ExperienceItem[] = [
   {
     title: "Développement d'une application web de gestion commerciale",
     company: "Projet personnel – Grossiste PPN à Mananjary & Fianarantsoa",
-    period: "Août 2025 - Présent",
+    period: "Août 2025 - Février 2026",
     description:
       "Conception et développement d'une application web mobile de gestion des produits, commandes et ventes pour un grossiste PPN, avec une interface moderne et intuitive.[React.js (tsx), Python (flask), React native, PostgreSQL].",
     icon: Code,
@@ -108,18 +108,18 @@ export const experiences: ExperienceItem[] = [
 ======================= */
 
 export const educations: EducationItem[] = [
-  {
-    title: "Master 1 - Gouvernance et Ingénierie des Données",
+   {
+    title: "Master 2 - Gouvernance et Ingénierie des Données (GID)",
     institution: "Ecole Nationale d'Informatique Fianarantsoa (ENI)",
-    period: "2024 - Présent",
+    period: "2025 à Présent",
     description:
-      "Master orienté en intelligence artificielle, big data et gouvernance des données.",
+      "Master orienté en IA, big data, data science et gouvernance des données.",
     icon: Rocket,
     color: "text-pink-500",
     gradientFrom: "from-pink-500",
     gradientTo: "to-pink-600",
   },
-  {
+    {
     title: "Formation en Robotique",
     institution: "Orange Digitale Center Fianarantsoa",
     period: "Novembre 2025",
@@ -132,7 +132,17 @@ export const educations: EducationItem[] = [
     gradientTo: "to-orange-600",
     certificate: ODC_robot,
   },
-
+  {
+    title: "Master 1 - Gouvernance et Ingénierie des Données (GID)",
+    institution: "Ecole Nationale d'Informatique Fianarantsoa (ENI)",
+    period: "2024 - 2025",
+    description:
+      "Master orienté en IA, big data et gouvernance des données.",
+    icon: Rocket,
+    color: "text-pink-500",
+    gradientFrom: "from-pink-500",
+    gradientTo: "to-pink-600",
+  },
   {
     title: "Formation Data Science",
     institution:

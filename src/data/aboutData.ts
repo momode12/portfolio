@@ -26,9 +26,10 @@ export const aboutTexts = {
     dataEngineering: "ingénierie des données",
     middle: "Je m'attache à produire des solutions techniques élégantes et performantes, avec une spécialisation en",
     specializations: {
+      software: "Génie Logiciel",
       dataEng: "Data Engineering",
       ai: "Intelligence Artificielle",
-      software: "Génie Logiciel",
+      
     },
   },
   

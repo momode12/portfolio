@@ -47,7 +47,9 @@ export const competences: Comp[] = [
     title: "Outils",
     techs: [
       { name: "Git", grade: 80 },
-      { name: "Pandas", grade: 80 },
+      { name: "Anaconda", grade: 80 },
+      { name: "Power BI", grade: 60 },
+      { name: "Google collab", grade: 80 },
     ],
   },
   {
@@ -64,8 +66,8 @@ export const competences: Comp[] = [
     icon: FolderKanban,
     title: "Gestion de projet",
     techs: [
-      { name: "Méthodologie Agile / Scrum", grade: 80 },
-      { name: "GitHub / Trello", grade: 80 },
+      { name: "Agile", grade: 80 },
+      { name: "Scrum", grade: 80 },
     ],
   },
   {
@@ -73,8 +75,8 @@ export const competences: Comp[] = [
     title: "Data & Analyse",
     techs: [
       { name: "SQL avancé", grade: 80 },
-      { name: "Python (ML/DL)", grade: 80 },
-      { name: "Visualisation (Power BI)", grade: 60 },
+      { name: "ML/DL", grade: 80 },
+      { name: "Visualisation)", grade: 60 },
       { name: "Nettoyage de données", grade: 80 },
     ],
   },
