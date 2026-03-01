@@ -138,7 +138,7 @@ const About: React.FC<AboutProps> = () => {
             </div>
 
             <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto md:mx-0 text-left md:text-justify md:hyphens-auto">
-              {aboutTexts.description.intro} <span className="text-green-600 dark:text-green-400 font-semibold">{aboutTexts.description.fullStack}</span> et <span className="text-green-600 dark:text-green-400 font-semibold">{aboutTexts.description.dataEngineering}</span>. {aboutTexts.description.middle} <span className="text-green-600 dark:text-green-400 font-semibold">{aboutTexts.description.specializations.dataEng}</span>, <span className="text-green-600 dark:text-green-400 font-semibold">{aboutTexts.description.specializations.ai}</span> et <span className="text-green-600 dark:text-green-400 font-semibold">{aboutTexts.description.specializations.software}</span>.
+              {aboutTexts.description.intro} <span className="text-green-600 dark:text-green-400 font-semibold">{aboutTexts.description.fullStack}</span> et <span className="text-green-600 dark:text-green-400 font-semibold">{aboutTexts.description.dataEngineering}</span>. {aboutTexts.description.middle} <span className="text-green-600 dark:text-green-400 font-semibold">{aboutTexts.description.specializations.software}</span>, <span className="text-green-600 dark:text-green-400 font-semibold">{aboutTexts.description.specializations.dataEng}</span> et <span className="text-green-600 dark:text-green-400 font-semibold">{aboutTexts.description.specializations.ai}</span>.
             </p>
 
             {/* Boutons */}

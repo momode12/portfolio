@@ -23,7 +23,7 @@ export const aboutTexts = {
   description: {
     intro: "Étudiant en informatique combinant",
     fullStack: "développement web full-stack",
-    dataEngineering: "ingénierie des données",
+    dataEngineering: "science des données",
     middle: "Je m'attache à produire des solutions techniques élégantes et performantes, avec une spécialisation en",
     specializations: {
       software: "Génie Logiciel",
