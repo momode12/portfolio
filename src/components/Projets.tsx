@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Youtube, ArrowUpRight } from "lucide-react";
+import { Github, Globe, ArrowUpRight } from "lucide-react";
 import { projects } from "../data/projectData";
 import { Sparkles } from "lucide-react";
 
@@ -140,7 +140,7 @@ const Projets: React.FC<ProjectProps> = () => {
                     {project.desc}
                   </p>
 
-                  {/* Technologies avec style amélioré */}
+                  {/* Technologies */}
                   <div className="flex flex-wrap gap-1.5 xs:gap-2 mb-4 xs:mb-5 sm:mb-6">
                     {project.stack.map((tech, i) => (
                       <motion.span
@@ -158,8 +158,9 @@ const Projets: React.FC<ProjectProps> = () => {
                     ))}
                   </div>
 
-                  {/* Boutons améliorés */}
+                  {/* Boutons */}
                   <div className="flex flex-col xs:flex-row flex-wrap gap-2 xs:gap-2.5 sm:gap-3">
+                    {/* GitHub */}
                     <motion.a
                       href={project.github}
                       target="_blank"
@@ -178,6 +179,7 @@ const Projets: React.FC<ProjectProps> = () => {
                       <span className="truncate">Code source</span>
                     </motion.a>
 
+                    {/* Demo / Voir en ligne */}
                     <motion.a
                       href={project.demo}
                       target="_blank"
@@ -185,12 +187,15 @@ const Projets: React.FC<ProjectProps> = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="flex-1 min-w-[120px] xs:min-w-[140px] flex items-center justify-center gap-1.5 xs:gap-2 px-3 xs:px-4 sm:px-5 py-2 xs:py-2.5 sm:py-3 text-xs xs:text-sm font-semibold 
-                                 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg xs:rounded-xl
-                                 hover:from-red-600 hover:to-red-700 
+                                 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg xs:rounded-xl
+                                 hover:from-green-600 hover:to-green-700
                                  transition-all shadow-lg hover:shadow-xl group/btn"
                     >
-                      <Youtube size={16} className="xs:w-[18px] xs:h-[18px] flex-shrink-0" />
-                      <span className="truncate">Voir la démo</span>
+                      <Globe
+                        size={16}
+                        className="xs:w-[18px] xs:h-[18px] flex-shrink-0"
+                      />
+                      <span className="truncate">Voir en ligne</span>
                       <ArrowUpRight
                         size={14}
                         className="xs:w-4 xs:h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform flex-shrink-0"
