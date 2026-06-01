@@ -25,14 +25,14 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-{
-  title: "Estimateur de Prix Immobilier IA",
-  desc: "Application web de prédiction de prix immobiliers en Inde basée sur un modèle de Machine Learning. Intègre un dashboard de monitoring MLflow en temps réel et une authentification sécurisée.",
-  stack: ["React.js (tsx)", "Tailwind CSS", "Flask", "MongoDB", "MLflow", "scikit-learn"],
-  images: [house1, house2, house3],
-  github: "https://github.com/momode12/House",
-  demo: "https://house-ten-pi.vercel.app/login",
-},
+    {
+      title: "Estimateur de Prix Immobilier IA",
+      desc: "Application web de prédiction de prix immobiliers en Inde basée sur un modèle de Machine Learning. Intègre un dashboard de monitoring MLflow en temps réel et une authentification sécurisée.",
+      stack: ["React.js (tsx)", "Tailwind CSS", "Flask", "MongoDB", "MLflow", "scikit-learn"],
+      images: [house1, house2, house3],
+      github: "https://github.com/momode12/House",
+      demo: "https://house-ten-pi.vercel.app/login",
+    },
     {
     title: "Gestion de vente",
     desc: "Application web pour la gestion de stock et de ventes dans un frossiste PPN à Mananjary.",
