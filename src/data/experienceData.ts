@@ -9,19 +9,19 @@ import {
   Brain,
 } from "lucide-react";
 
-/* =======================
-   TYPES
-======================= */
-
-import pnudCert from "../assets/Certificat_diplome/pnud.jpg";
-import ideaCert from "../assets/Certificat_diplome/idea.jpg";
-import financeCert from "../assets/Certificat_diplome/stage_L2.jpg";
-import bacCert from "../assets/Certificat_diplome/Bacc.jpg";
-import licenceCert from "../assets/Certificat_diplome/licence.jpg";
-import releveTranscript from "../assets/Certificat_diplome/releve.jpg";
-import releveL3Transcript from "../assets/Certificat_diplome/releve_L3.jpg";
+import pnudCert from "../assets/Certificat_diplome/ATTESTATION DE PARTICIPATION _20260319_0001.pdf";
+import ideaCert from "../assets/Certificat_diplome/ATT DE FORMATION _20260319_0001.pdf";
+import financeCert from "../assets/Certificat_diplome/CERTIFICAT DE STAGE FINANCE.pdf";
+import bacCert from "../assets/Certificat_diplome/DIPLOME_BACC.pdf";
+import licenceCert from "../assets/Certificat_diplome/DIPLOME_LICENCE.pdf";
+import releveTranscript from "../assets/Certificat_diplome/RELEVE DE NOTE_BAC.pdf";
+import releveL3Transcript from "../assets/Certificat_diplome/RELEVE DE NOTE L3.pdf";
 import ODC_robot from "../assets/Certificat_diplome/HERITIANA Julien - Formation1.pdf";
 
+
+import releveM1Transcript from "../assets/Certificat_diplome/RELEVE DE NOTE M1.pdf";
+import releveL2Transcript from "../assets/Certificat_diplome/RELEVE_DE_NOTE_L2.pdf";
+import releveL1Transcript from "../assets/Certificat_diplome/RELEVE_DE_NOTE_L1.pdf";
 export interface ExperienceItem {
   title: string;
   company: string;
@@ -47,10 +47,6 @@ export interface EducationItem {
   certificate?: string;
   transcript?: string;
 }
-
-/* =======================
-   EXPERIENCES
-======================= */
 
 export const experiences: ExperienceItem[] = [
   {
@@ -103,10 +99,6 @@ export const experiences: ExperienceItem[] = [
   },
 ];
 
-/* =======================
-   FORMATIONS
-======================= */
-
 export const educations: EducationItem[] = [
    {
     title: "Master 2 - Gouvernance et Ingénierie des Données (GID)",
@@ -142,6 +134,7 @@ export const educations: EducationItem[] = [
     color: "text-pink-500",
     gradientFrom: "from-pink-500",
     gradientTo: "to-pink-600",
+    transcript: releveM1Transcript,
   },
   {
     title: "Formation Data Science",
@@ -181,6 +174,7 @@ export const educations: EducationItem[] = [
     color: "text-purple-500",
     gradientFrom: "from-purple-500",
     gradientTo: "to-purple-600",
+    transcript: releveL2Transcript,
   },
   {
     title: "Licence 1 en Informatique Générale (IG)",
@@ -192,6 +186,7 @@ export const educations: EducationItem[] = [
     color: "text-green-500",
     gradientFrom: "from-green-500",
     gradientTo: "to-green-600",
+    transcript: releveL1Transcript,
   },
   {
     title: "Baccalauréat Série C",

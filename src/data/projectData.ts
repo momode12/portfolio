@@ -14,6 +14,10 @@ import grossiste3 from "../assets/project/grossiste_3.png";
 import house1 from "../assets/project/house1.png";
 import house2 from "../assets/project/house2.png";
 import house3 from "../assets/project/house3.png";  
+import chatbot1 from "../assets/project/chatbot1.jpg";
+import chatbot2 from "../assets/project/chatbot2.jpg";
+import chatbot3 from "../assets/project/chatbot3.jpg"
+import chatbot4 from "../assets/project/chatbot4.jpg"
 
 export interface Project {
   title: string;
@@ -25,6 +29,14 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+   {
+      title: "Chatbot intelligent NLP",
+      desc: "Application web chatbot inteligent en Malagasy dans le domaine de santé.",
+      stack: ["React.js (tsx)", "Tailwind CSS", "Flask", "MongoDB", "TF-IDF", "SVM", "BM-25"],
+      images: [chatbot1, chatbot2, chatbot3, chatbot4],
+      github: "https://github.com/momode12/Int_mod",
+      demo: "https://huggingface.co/spaces/heritiana2026/chatbot-medical-demo",
+    },
     {
       title: "Estimateur de Prix Immobilier IA",
       desc: "Application web de prédiction de prix immobiliers en Inde basée sur un modèle de Machine Learning. Intègre un dashboard de monitoring MLflow en temps réel et une authentification sécurisée.",

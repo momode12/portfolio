@@ -26,6 +26,22 @@ const Experience: React.FC<ExperienceProps> = () => {
     return "Télécharger le certificat";
   };
 
+  const showTranscript = (title: string) => {
+    const lower = title.toLowerCase();
+    return (
+      lower.includes("baccalauréat") ||
+      lower.includes("licence 1") ||
+      lower.includes("licence 2") ||
+      lower.includes("licence 3") ||
+      lower.includes("master 1")
+    );
+  };
+
+  const showDiplome = (title: string) => {
+    const lower = title.toLowerCase();
+    return lower.includes("baccalauréat") || lower.includes("licence 3");
+  };
+
   return (
     <section
       id="experience"
@@ -316,27 +332,33 @@ const Experience: React.FC<ExperienceProps> = () => {
 
                       {/* Boutons en bas */}
                       <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-                      { (edu.title.toLowerCase().includes("baccalauréat") ||
-                         edu.title.toLowerCase().includes("licence 3")) && (
-                            <a
-                              href={edu.transcript}
-                              download
-                              className="inline-flex items-center justify-center gap-1.5 xs:gap-2 px-3 xs:px-4 sm:px-5 py-1.5 xs:py-2 sm:py-2.5 rounded-lg bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white text-xs sm:text-sm font-semibold shadow-md w-full sm:w-auto"
-                            >
-                              <Download size={12} className="xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                              <span className="truncate">Télécharger le relevé de notes</span>
-                            </a>
-                          )}
+                        {showTranscript(edu.title) && (
+                          <a
+                            href={edu.transcript}
+                            download
+                            className="inline-flex items-center justify-center gap-1.5 xs:gap-2 px-3 xs:px-4 sm:px-5 py-1.5 xs:py-2 sm:py-2.5 rounded-lg bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white text-xs sm:text-sm font-semibold shadow-md w-full sm:w-auto"
+                          >
+                            <Download size={12} className="xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                            <span className="truncate">Télécharger le relevé de notes</span>
+                          </a>
+                        )}
 
-                        {edu.certificate && (
+                        {showDiplome(edu.title) && edu.certificate && (
                           <a
                             href={edu.certificate}
                             download
-                            className="inline-flex items-center justify-center gap-1.5 xs:gap-2 px-3 xs:px-4 sm:px-5 py-1.5 xs:py-2 sm:py-2.5
-                 rounded-lg bg-gradient-to-r
-                 from-green-500 to-green-600
-                 hover:from-green-600 hover:to-green-700
-                 text-white text-xs sm:text-sm font-semibold shadow-md w-full sm:w-auto"
+                            className="inline-flex items-center justify-center gap-1.5 xs:gap-2 px-3 xs:px-4 sm:px-5 py-1.5 xs:py-2 sm:py-2.5 rounded-lg bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-xs sm:text-sm font-semibold shadow-md w-full sm:w-auto"
+                          >
+                            <Download size={12} className="xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                            <span className="truncate">Télécharger le diplôme</span>
+                          </a>
+                        )}
+
+                        {!showDiplome(edu.title) && edu.certificate && (
+                          <a
+                            href={edu.certificate}
+                            download
+                            className="inline-flex items-center justify-center gap-1.5 xs:gap-2 px-3 xs:px-4 sm:px-5 py-1.5 xs:py-2 sm:py-2.5 rounded-lg bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-xs sm:text-sm font-semibold shadow-md w-full sm:w-auto"
                           >
                             <Download size={12} className="xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
                             <span className="truncate">{getEducationButtonLabel(edu.title)}</span>
