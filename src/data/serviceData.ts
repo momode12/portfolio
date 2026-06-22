@@ -1,10 +1,10 @@
 import {
-  Code2,
-  Smartphone,
+  PenTool,
   Database,
+  Code2,
   Brain,
   LineChart,
-  Server,
+  Rocket,
 } from "lucide-react";
 
 /* =======================
@@ -22,67 +22,71 @@ export interface ServiceItem {
 }
 
 /* =======================
-   SERVICES – DEV & IA
+   SERVICES
 ======================= */
 
 export const services: ServiceItem[] = [
   {
-    icon: Code2,
-    title: "Développement Web Full Stack",
+    icon: PenTool,
+    title: "Conception Logicielle",
     description:
-      "Conception et développement d’applications web robustes, sécurisées et évolutives.",
+      "Modélisation et architecture des systèmes avant tout développement, pour des solutions claires et maintenables.",
     features: [
-      "Frontend moderne avec React.js / Next.js",
-      "Backend API REST avec Node.js / Express et Flask de python",
-      "Architecture logicielle claire (MVC, Clean Architecture)",
-      "Applications performantes et maintenables",
+      "Diagrammes UML : cas d'utilisation, séquence, classes, activités",
+      "Modélisation des données avec Merise (MCD / MLD / MPD)",
+      "Architecture logicielle : MVC, Clean Architecture, couches métier",
+      "Rédaction des spécifications fonctionnelles et techniques",
+      "Revue et validation des modèles avant implémentation",
     ],
-    color: "text-blue-500",
-    gradientFrom: "from-blue-500",
-    gradientTo: "to-blue-600",
-  },
-  {
-    icon: Smartphone,
-    title: "Développement Mobile",
-    description:
-      "Développement d’applications mobiles cross-platform orientées performance et expérience utilisateur.",
-    features: [
-      "Applications mobiles avec React Native",
-      "Connexion sécurisée aux API backend",
-      "Gestion des états et navigation",
-      "Déploiement Android et iOS",
-    ],
-    color: "text-green-500",
-    gradientFrom: "from-green-500",
-    gradientTo: "to-green-600",
+    color: "text-violet-500",
+    gradientFrom: "from-violet-500",
+    gradientTo: "to-violet-600",
   },
   {
     icon: Database,
-    title: "Ingénierie des Bases de Données",
+    title: "Bases de Données",
     description:
       "Conception, optimisation et sécurisation de bases de données relationnelles et NoSQL.",
     features: [
       "Modélisation relationnelle (Merise, UML)",
       "PostgreSQL, MySQL, MongoDB",
-      "Optimisation des requêtes et performances",
-      "Gestion des accès et intégrité des données",
+      "Optimisation des requêtes et des performances",
+      "Gestion des accès, transactions et intégrité des données",
+      "Migration et sauvegarde des bases de données",
     ],
     color: "text-purple-500",
     gradientFrom: "from-purple-500",
     gradientTo: "to-purple-600",
   },
   {
+    icon: Code2,
+    title: "Développement Full Stack Web & Mobile",
+    description:
+      "Conception et développement d'applications web et mobiles robustes, modernes et cross-platform.",
+    features: [
+      "Frontend : React.js, TypeScript, JavaScript, Tailwind CSS, HTML / CSS",
+      "Mobile : React Native (Android & iOS)",
+      "Backend API REST : Node.js / Express, Flask (Python)",
+      "Architecture claire et code maintenable",
+      "Connexion sécurisée aux bases de données et aux API",
+    ],
+    color: "text-blue-500",
+    gradientFrom: "from-blue-500",
+    gradientTo: "to-blue-600",
+  },
+  {
     icon: Brain,
     title: "Data Science & Intelligence Artificielle",
     description:
-      "Exploitation avancée des données pour l’analyse, le nettoyage, le prétraitement et le développement de modèles intelligents d’aide à la décision.",
+      "Exploitation avancée des données pour l'analyse, la modélisation et le déploiement de solutions intelligentes.",
     features: [
-      "Analyse exploratoire et statistique des données",
-      "Nettoyage et prétraitement des données pour garantir leur qualité",
-      "Traitement et transformation des données pour les rendre exploitables",
-      "Conception et entraînement de modèles de Machine Learning et Deep Learning",
-      "Évaluation et interprétation des modèles prédictifs",
-      "Mise en production de solutions d’IA pour l’automatisation et la prédiction",
+      "1. Collecte et exploration des données (EDA)",
+      "2. Nettoyage et traitement des données",
+      "3. Sélection et ingénierie des features",
+      "4. Conception et entraînement des modèles ML / Deep Learning",
+      "5. Évaluation et interprétation des modèles",
+      "6. Optimisation et tuning des hyperparamètres",
+      "7. Mise en production et monitoring des solutions IA",
     ],
     color: "text-pink-500",
     gradientFrom: "from-pink-500",
@@ -92,27 +96,31 @@ export const services: ServiceItem[] = [
     icon: LineChart,
     title: "Business Intelligence & Analyse Décisionnelle",
     description:
-      "Mise en place de solutions d’analyse pour le pilotage et la prise de décision.",
+      "Mise en place de solutions d'analyse et de visualisation pour le pilotage et la prise de décision.",
     features: [
-      "Tableaux de bord analytiques (Power BI)",
-      "Indicateurs clés de performance (KPI)",
-      "Analyse descriptive et exploratoire",
-      "Valorisation des données métier",
+      "Tableaux de bord interactifs avec Power BI",
+      "Définition et suivi des indicateurs clés (KPI)",
+      "Analyse descriptive, exploratoire et prédictive",
+      "Valorisation et storytelling des données métier",
+      "Rapports automatisés pour les équipes décisionnelles",
     ],
     color: "text-orange-500",
     gradientFrom: "from-orange-500",
     gradientTo: "to-orange-600",
   },
   {
-    icon: Server,
-    title: "Architecture Backend & Déploiement",
+    icon: Rocket,
+    title: "Déploiement & CI/CD",
     description:
-      "Mise en production et gestion technique des applications côté serveur.",
+      "Mise en production automatisée et fiable des applications via un pipeline DevOps complet.",
     features: [
-      "Déploiement sur serveurs Linux",
-      "Configuration backend et API",
-      "Gestion des environnements (dev, prod)",
-      "Notions de conteneurisation et sécurité",
+      "1. Push du code sur GitHub",
+      "2. Déclenchement automatique via webhook Jenkins",
+      "3. Analyse qualité avec SonarQube (Quality Gate)",
+      "4. Build d'une image Docker",
+      "5. Push vers un registry privé Nexus",
+      "6. Déploiement automatique via Docker Compose",
+      "7. Notification de fin de pipeline",
     ],
     color: "text-cyan-500",
     gradientFrom: "from-cyan-500",

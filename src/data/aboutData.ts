@@ -16,12 +16,12 @@ export const aboutTexts = {
   // Badges
   badges: {
     student: "Étudiant à l'ENI Fianarantsoa",
-    developer: "Développeur Full Stack",
+    developer: "Développeur Full Stack/IA",
   },
   
   // Description principale
   description: {
-    intro: "Étudiant en informatique combinant",
+    intro: "Étudiant en Intelligence Artificielle combinant",
     fullStack: "développement web full-stack",
     dataEngineering: "science des données",
     middle: "Je m'attache à produire des solutions techniques élégantes et performantes, avec une spécialisation en",

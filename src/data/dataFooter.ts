@@ -22,7 +22,7 @@ export const contactInfos: ContactInfo[] = [
   {
     icon: MapPin,
     label: "Adresse",
-    value: "Cité Antarandolo Fianarantsoa, Madagascar",
+    value: "Itaosy Antananarivo, Madagascar",
   },
 ];
 

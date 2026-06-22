@@ -8,34 +8,56 @@ import Experience from "./components/Experience";
 import Projets from "./components/Projets";
 import Service from "./components/Service";
 import ParticlesBackground from "./components/ParticlesBackground";
+import NotFound from "./pages/NotFoundPage";
+
+const SECTIONS = [
+  "accueil",
+  "apropos",
+  "projet",
+  "competence",
+  "experience",
+  "service",
+  "footer",
+];
+
+/** Vérifie si le hash actuel est une route inconnue */
+const isUnknownHash = () => {
+  const hash = window.location.hash.replace("#", "");
+  // Hash vide = accueil = OK
+  // Hash connu = OK
+  // Hash inconnu = 404
+  return hash !== "" && !SECTIONS.includes(hash);
+};
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [activeSection, setActiveSection] = useState("accueil");
+  const [notFound, setNotFound] = useState(isUnknownHash);
 
-  /** ============================
-   *  CLASSE COMMUNE POUR SECTIONS
-   * ============================ */
   const sectionClass = "mt-[-20px] pt-[20px]";
 
   /** ============================
-   *  DÉTECTION DU SCROLL (SANS URL)
+   *  ÉCOUTE DES CHANGEMENTS DE HASH
+   *  (navigation bouton retour/suivant)
    * ============================ */
   useEffect(() => {
-    const sections = [
-      "accueil",
-      "apropos",
-      "projet",
-      "competence",
-      "experience",
-      "service",
-      "footer",
-    ];
+    const handleHashChange = () => {
+      setNotFound(isUnknownHash());
+    };
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  /** ============================
+   *  SCROLL → met à jour le hash
+   * ============================ */
+  useEffect(() => {
+    if (notFound) return;
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
 
-      for (const sectionId of sections) {
+      for (const sectionId of SECTIONS) {
         const element = document.getElementById(sectionId);
         if (!element) continue;
 
@@ -43,31 +65,57 @@ const App = () => {
         const height = element.offsetHeight;
 
         if (scrollPosition >= top && scrollPosition < top + height) {
-          setActiveSection(sectionId);
+          if (activeSection !== sectionId) {
+            setActiveSection(sectionId);
+            history.replaceState(null, "", `#${sectionId}`);
+          }
           break;
         }
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [activeSection, notFound]);
+
+  /** ============================
+   *  HASH → scroll à l'arrivée
+   * ============================ */
+  useEffect(() => {
+    if (notFound) return;
+    const hash = window.location.hash.replace("#", "");
+    if (hash && SECTIONS.includes(hash)) {
+      setTimeout(() => {
+        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [notFound]);
 
   /** ============================
    *  DARK MODE
    * ============================ */
-  const toggleDarkMode = () => {
-    setDarkMode((prev) => !prev);
-  };
+  const toggleDarkMode = () => setDarkMode((prev) => !prev);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
 
   /** ============================
-   *  RENDER
+   *  AFFICHE 404 si hash inconnu
+   * ============================ */
+  if (notFound) {
+    return (
+      <div className={darkMode ? "dark" : ""}>
+        <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white transition-colors duration-300">
+          <NotFound />
+        </div>
+      </div>
+    );
+  }
+
+  /** ============================
+   *  RENDER NORMAL
    * ============================ */
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">

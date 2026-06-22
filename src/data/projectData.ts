@@ -1,23 +1,24 @@
 import php from "../assets/project/php.png";
-import cpe1 from "../assets/project/cpe_1.png";
-import cpe2 from "../assets/project/cpe_2.png";
-import cpe3 from "../assets/project/cpe_3.png";
-import fete1 from "../assets/project/fete_1.png";
-import fete2 from "../assets/project/fete_2.png";
-import portfolio1 from "../assets/project/portfolio1.png";
-import portfolio2 from "../assets/project/portfolio2.png";
-import finance1 from "../assets/project/finance1.png";
-import finance2 from "../assets/project/finance2.png";
-import grossiste1 from "../assets/project/grossiste_1.png";
-import grossiste2 from "../assets/project/grossiste_2.png";
-import grossiste3 from "../assets/project/grossiste_3.png";
-import house1 from "../assets/project/house1.png";
-import house2 from "../assets/project/house2.png";
-import house3 from "../assets/project/house3.png";  
-import chatbot1 from "../assets/project/chatbot1.jpg";
-import chatbot2 from "../assets/project/chatbot2.jpg";
-import chatbot3 from "../assets/project/chatbot3.jpg"
-import chatbot4 from "../assets/project/chatbot4.jpg"
+import cpe1 from "../assets/project/cpe/cpe_1.png";
+import cpe2 from "../assets/project/cpe/cpe_2.png";
+import cpe3 from "../assets/project/cpe/cpe_3.png";
+import fete1 from "../assets/project/fete/fete_1.png";
+import fete2 from "../assets/project/fete/fete_2.png";
+import portfolio1 from "../assets/project/portfolio/portfolio1.png";
+import portfolio2 from "../assets/project/portfolio/portfolio2.png";
+import finance1 from "../assets/project/finance/finance1.png";
+import finance2 from "../assets/project/finance/finance2.png";
+import grossiste1 from "../assets/project/grossiste/grossiste_1.png";
+import grossiste2 from "../assets/project/grossiste/grossiste_2.png";
+import grossiste3 from "../assets/project/grossiste/grossiste_3.png";
+import immo1 from "../assets/project/immo/1Immo.png";
+import immo2 from "../assets/project/immo/2Immo.png";
+import immo3 from "../assets/project/immo/3immo.png";
+import immo4 from "../assets/project/immo/4immo.png";
+import chatbot1 from "../assets/project/chatbot/chatbot1.jpg";
+import chatbot2 from "../assets/project/chatbot/chatbot2.jpg";
+import chatbot3 from "../assets/project/chatbot/chatbot3.jpg"
+import chatbot4 from "../assets/project/chatbot/chatbot4.jpg"
 
 export interface Project {
   title: string;
@@ -38,12 +39,12 @@ export const projects: Project[] = [
       demo: "https://huggingface.co/spaces/heritiana2026/chatbot-medical-demo",
     },
     {
-      title: "Estimateur de Prix Immobilier IA",
-      desc: "Application web de prédiction de prix immobiliers en Inde basée sur un modèle de Machine Learning. Intègre un dashboard de monitoring MLflow en temps réel et une authentification sécurisée.",
-      stack: ["React.js (tsx)", "Tailwind CSS", "Flask", "MongoDB", "MLflow", "scikit-learn"],
-      images: [house1, house2, house3],
-      github: "https://github.com/momode12/House",
-      demo: "https://house-ten-pi.vercel.app/login",
+      title: "Estimateur de Prix Immobilier IA – Madagascar",
+      desc: "Prédiction de prix immobiliers pour le marché malgache via un modèle Random Forest.",
+      stack: ["React.js", "Tailwind CSS", "Flask", "MongoDB", "Scikit-learn", "Google Colab", "Random Forest"],
+      images: [immo1, immo2, immo3, immo4],
+      github: "https://github.com/momode12/prediction_de_prix",
+      demo: "https://huggingface.co/spaces/heritiana2026/prediction_de_prix_immobilier",
     },
     {
     title: "Gestion de vente",
