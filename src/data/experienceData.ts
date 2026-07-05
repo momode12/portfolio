@@ -9,19 +9,19 @@ import {
   Brain,
 } from "lucide-react";
 
-import pnudCert from "../assets/Certificat_diplome/ATTESTATION DE PARTICIPATION _20260319_0001.pdf";
-import ideaCert from "../assets/Certificat_diplome/ATT DE FORMATION _20260319_0001.pdf";
-import financeCert from "../assets/Certificat_diplome/CERTIFICAT DE STAGE FINANCE.pdf";
-import bacCert from "../assets/Certificat_diplome/DIPLOME_BACC.pdf";
-import licenceCert from "../assets/Certificat_diplome/DIPLOME_LICENCE.pdf";
-import releveTranscript from "../assets/Certificat_diplome/RELEVE DE NOTE_BAC.pdf";
-import releveL3Transcript from "../assets/Certificat_diplome/RELEVE DE NOTE L3.pdf";
-import ODC_robot from "../assets/Certificat_diplome/HERITIANA Julien - Formation1.pdf";
+import pnudCert from "../assets/Certificat_diplome/ATTESTATION_DE_PARTICIPATION _ HERITIANA_Julien.pdf";
+import ideaCert from "../assets/Certificat_diplome/ATTESTATION_DE _ORMATION_Data_Science _HERITIANA_Julien.pdf";
+import financeCert from "../assets/Certificat_diplome/CERTIFICAT_DE_STAGE_FINANCE_HERITIANA_Julien.pdf";
+import bacCert from "../assets/Certificat_diplome/DIPLOME_BACC _HERITIANA_Julien.pdf";
+import licenceCert from "../assets/Certificat_diplome/DIPLOME_LICENCE _HERITIANA_Julien.pdf";
+import releveTranscript from "../assets/Certificat_diplome/RELEVE_DE_NOTE_BAC_HERITIANA _Julien.pdf";
+import releveL3Transcript from "../assets/Certificat_diplome/RELEVE_DE_NOTE_L3_HERITIANA_Julien.pdf";
+import ODC_robot from "../assets/Certificat_diplome/HERITIANA_Julien_Formation_robotique_ODC.pdf";
 
 
-import releveM1Transcript from "../assets/Certificat_diplome/RELEVE DE NOTE M1.pdf";
-import releveL2Transcript from "../assets/Certificat_diplome/RELEVE_DE_NOTE_L2.pdf";
-import releveL1Transcript from "../assets/Certificat_diplome/RELEVE_DE_NOTE_L1.pdf";
+import releveM1Transcript from "../assets/Certificat_diplome/RELEVE_DE_NOTE_M1_HERITIANA_Julien.pdf";
+import releveL2Transcript from "../assets/Certificat_diplome/RELEVE_DE_NOTE_L2_HERITIANA_Julien.pdf";
+import releveL1Transcript from "../assets/Certificat_diplome/RELEVE_DE_NOTE_L1_HERITIANA_Julien.pdf";
 export interface ExperienceItem {
   title: string;
   company: string;
