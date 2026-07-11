@@ -100,7 +100,7 @@ const Navbar: React.FC<NavbarProps> = ({
               <button
                 onClick={() => scrollToSection(link.id)}
                 className={`
-                  px-3 py-2 rounded-lg transition duration-200
+                  px-3 py-2 rounded-lg transition duration-200 cursor-pointer
                   ${
                     activeSection === link.id
                       ? "bg-gray-200 dark:bg-gray-700 text-green-600 dark:text-green-400 font-semibold"
@@ -128,7 +128,7 @@ const Navbar: React.FC<NavbarProps> = ({
               onMouseLeave={() => setShowTooltip(false)}
               onFocus={() => setShowTooltip(true)}
               onBlur={() => setShowTooltip(false)}
-              className="p-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+              className="p-2.5 cursor-pointer rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
               aria-label={
                 darkMode
                   ? navbarConfig.tooltips.lightMode
@@ -161,7 +161,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
           <button
             onClick={() => scrollToSection("footer")}
-            className="px-5 py-2.5 bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white font-semibold rounded-lg transition"
+            className="px-5 cursor-pointer py-2.5 bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white font-semibold rounded-lg transition"
           >
             {navbarConfig.buttons.contact}
           </button>
