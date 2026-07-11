@@ -7,6 +7,7 @@ import {
   Award,
   BookOpen,
   Brain,
+  Trophy,
 } from "lucide-react";
 
 import pnudCert from "../assets/Certificat_diplome/ATTESTATION_DE_PARTICIPATION _ HERITIANA_Julien.pdf";
@@ -49,6 +50,18 @@ export interface EducationItem {
 }
 
 export const experiences: ExperienceItem[] = [
+    {
+    title: "Prix Coup de Cœur du Jury – Orange Ainga Data (Ideathon)",
+    company: "Orange Digital Center Madagascar & Ingedata",
+    period: "04 Juillet 2026",
+    description:
+      "Participation avec l'équipe de l'ENI Fianarantsoa à la 1ère édition d'Orange Ainga Data, un ideathon réunissant près de 200 étudiants autour du thème « La Data au service de l'Innovation : Créer, Connecter, Transformer ». Remporté le Prix Coup de Cœur du Jury pour un projet de newsletter personnalisée.",
+    icon: Trophy,
+    color: "text-yellow-500",
+    gradientFrom: "from-yellow-400",
+    gradientTo: "to-amber-600",
+    certificate: pnudCert,
+  },
   {
     title: "Développement d'une application web de gestion commerciale",
     company: "Projet personnel – Grossiste PPN à Mananjary & Fianarantsoa",
