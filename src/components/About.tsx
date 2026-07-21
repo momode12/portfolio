@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import profilePic from "../assets/project/soutenance.jpg";
-import cvFile from "../assets/CV/CV_Julien.pdf";
+import cvFile from "../assets/CV/CV_HERITIANA_Julien_Data_Scientist.pdf";
 import { expertises, socialLinks, aboutTexts } from "../data/aboutData";
 
 interface AboutProps {

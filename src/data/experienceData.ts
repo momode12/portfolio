@@ -18,6 +18,7 @@ import licenceCert from "../assets/Certificat_diplome/DIPLOME_LICENCE _HERITIANA
 import releveTranscript from "../assets/Certificat_diplome/RELEVE_DE_NOTE_BAC_HERITIANA _Julien.pdf";
 import releveL3Transcript from "../assets/Certificat_diplome/RELEVE_DE_NOTE_L3_HERITIANA_Julien.pdf";
 import ODC_robot from "../assets/Certificat_diplome/HERITIANA_Julien_Formation_robotique_ODC.pdf";
+import ideathon_ingedata from "../assets/Certificat_diplome/Certification_ideathon_ingedata_odc.pdf"
 
 
 import releveM1Transcript from "../assets/Certificat_diplome/RELEVE_DE_NOTE_M1_HERITIANA_Julien.pdf";
@@ -60,7 +61,7 @@ export const experiences: ExperienceItem[] = [
     color: "text-yellow-500",
     gradientFrom: "from-yellow-400",
     gradientTo: "to-amber-600",
-    certificate: pnudCert,
+    certificate: ideathon_ingedata,
   },
   {
     title: "Développement d'une application web de gestion commerciale",
