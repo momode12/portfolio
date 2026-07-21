@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { aproposTexts } from "../data/aproposData";
+import { useLanguage } from "../context/LanguageContext";
 import { Sparkles } from "lucide-react";
 
 interface AproposProps {
@@ -7,6 +8,15 @@ interface AproposProps {
 }
 
 const Apropos: React.FC<AproposProps> = () => {
+  const { language } = useLanguage();
+  const texts = aproposTexts[language];
+
+  const titles: Record<typeof language, { about: string; me: string }> = {
+    fr: { about: "À propos de", me: "moi" },
+    en: { about: "About", me: "me" },
+    de: { about: "Über", me: "mich" },
+  };
+  const title = titles[language];
 
   return (
     <section
@@ -34,9 +44,9 @@ const Apropos: React.FC<AproposProps> = () => {
               <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-green-500 dark:text-green-400" />
             </motion.div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-              À propos de{" "}
+              {title.about}{" "}
               <span className="text-green-600 dark:text-green-400 font-bold">
-                moi
+                {title.me}
               </span>
             </h2>
             <motion.div
@@ -59,44 +69,43 @@ const Apropos: React.FC<AproposProps> = () => {
           <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-2xl border border-green-100 dark:border-gray-700">
             <div className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed space-y-4 sm:space-y-6">
               <p className="text-center">
-                Je m'appelle{" "}
+                {texts.intro.before}{" "}
                 <span className="font-bold text-green-600 dark:text-green-400 text-xl sm:text-2xl">
-                  {aproposTexts.name}
+                  {texts.name}
                 </span>
-                , étudiant en{" "}
+                {texts.intro.afterName}{" "}
                 <span className="font-semibold text-green-600 dark:text-green-400">
-                  {aproposTexts.study}
+                  {texts.study}
                 </span>
-                . Passionné par la{" "}
+                {texts.intro.afterStudy}{" "}
                 <span className="font-semibold text-green-600 dark:text-green-400">
-                  programmation
+                  {texts.intro.programming}
                 </span>
-                , la{" "}
+                {texts.intro.midData}{" "}
                 <span className="font-semibold text-green-600 dark:text-green-400">
-                  data
+                  {texts.intro.data}
                 </span>{" "}
-                et l'
+                {texts.intro.andAI}
                 <span className="font-semibold text-green-600 dark:text-green-400">
-                  intelligence artificielle
+                  {texts.intro.ai}
                 </span>
-                , j'aime transformer des idées en solutions concrètes.
+                {texts.intro.end}
               </p>
 
               <p className="text-center">
-                Je m'intéresse également à la{" "}
+                {texts.intro2.before}{" "}
                 <span className="font-semibold text-green-600 dark:text-green-400">
-                  science des données
+                  {texts.intro2.dataScience}
                 </span>
-                , à{" "}
+                {texts.intro2.mid}{" "}
                 <span className="font-semibold text-green-600 dark:text-green-400">
-                  l'analyse de données
+                  {texts.intro2.dataAnalysis}
                 </span>{" "}
-                ainsi qu'à{" "}
+                {texts.intro2.andAuto}{" "}
                 <span className="font-semibold text-green-600 dark:text-green-400">
-                  l'automatisation
+                  {texts.intro2.automation}
                 </span>
-                , domaines que j'explore avec enthousiasme. J'adore apprendre de
-                nouvelles technologies et relever des défis complexes.
+                {texts.intro2.end}
               </p>
             </div>
           </div>
@@ -116,11 +125,11 @@ const Apropos: React.FC<AproposProps> = () => {
               <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
                 <span className="text-2xl sm:text-3xl">🎯</span>
                 <p className="text-sm sm:text-base md:text-lg font-medium text-gray-800 dark:text-gray-200 max-w-2xl leading-relaxed text-center">
-                  Soutenir la{" "}
+                  {texts.conclusion.before}{" "}
                   <span className="font-bold text-green-600 dark:text-green-400">
-                    transformation numérique
+                    {texts.conclusion.digitalTransformation}
                   </span>{" "}
-                  par le développement de solutions logicielles modernes.
+                  {texts.conclusion.end}
                 </p>
               </div>
             </div>

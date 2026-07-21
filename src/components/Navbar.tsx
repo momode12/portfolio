@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { navbarLinks, navbarConfig } from "../data/navbarData";
+import { useLanguage } from "../context/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 interface NavbarProps {
   darkMode: boolean;
@@ -17,6 +19,10 @@ const Navbar: React.FC<NavbarProps> = ({
   const [menuOpen, setMenuOpen] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
   const firstMenuItemRef = useRef<HTMLButtonElement>(null);
+
+  const { language } = useLanguage();
+  const links = navbarLinks[language];
+  const config = navbarConfig[language];
 
   useEffect(() => {
     if (menuOpen) {
@@ -78,10 +84,10 @@ const Navbar: React.FC<NavbarProps> = ({
           }}
         >
           <span className="text-black dark:text-white">
-            {navbarConfig.logo.firstName}
+            {config.logo.firstName}
           </span>
           <span className="ml-1 text-green-600 dark:text-green-400">
-            {navbarConfig.logo.lastName}
+            {config.logo.lastName}
           </span>
         </motion.div>
 
@@ -95,7 +101,7 @@ const Navbar: React.FC<NavbarProps> = ({
             visible: { transition: { staggerChildren: 0.08 } },
           }}
         >
-          {navbarLinks.map((link) => (
+          {links.map((link) => (
             <motion.li key={link.id}>
               <button
                 onClick={() => scrollToSection(link.id)}
@@ -121,6 +127,8 @@ const Navbar: React.FC<NavbarProps> = ({
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
         >
+          <LanguageSwitcher />
+
           <div className="relative">
             <button
               onClick={toggleDarkMode}
@@ -131,8 +139,8 @@ const Navbar: React.FC<NavbarProps> = ({
               className="p-2.5 cursor-pointer rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
               aria-label={
                 darkMode
-                  ? navbarConfig.tooltips.lightMode
-                  : navbarConfig.tooltips.darkMode
+                  ? config.tooltips.lightMode
+                  : config.tooltips.darkMode
               }
             >
               {darkMode ? (
@@ -151,8 +159,8 @@ const Navbar: React.FC<NavbarProps> = ({
                   className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gray-800 dark:bg-gray-700 text-white text-xs rounded-lg whitespace-nowrap shadow-lg z-50"
                 >
                   {darkMode
-                    ? navbarConfig.tooltips.lightMode
-                    : navbarConfig.tooltips.darkMode}
+                    ? config.tooltips.lightMode
+                    : config.tooltips.darkMode}
                   <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 dark:bg-gray-700 rotate-45" />
                 </motion.div>
               )}
@@ -163,20 +171,22 @@ const Navbar: React.FC<NavbarProps> = ({
             onClick={() => scrollToSection("footer")}
             className="px-5 cursor-pointer py-2.5 bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white font-semibold rounded-lg transition"
           >
-            {navbarConfig.buttons.contact}
+            {config.buttons.contact}
           </button>
         </motion.div>
 
         {/* Boutons Mobile - Visibles et adaptés dès le start */}
         <div className="md:hidden flex items-center space-x-3 flex-shrink-0">
+          <LanguageSwitcher />
+
           {/* Dark Mode Mobile */}
           <button
             onClick={toggleDarkMode}
             className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-sm"
             aria-label={
               darkMode
-                ? navbarConfig.tooltips.lightMode
-                : navbarConfig.tooltips.darkMode
+                ? config.tooltips.lightMode
+                : config.tooltips.darkMode
             }
           >
             {darkMode ? (
@@ -192,8 +202,8 @@ const Navbar: React.FC<NavbarProps> = ({
             className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
             aria-label={
               menuOpen
-                ? navbarConfig.tooltips.closeMenu
-                : navbarConfig.tooltips.openMenu
+                ? config.tooltips.closeMenu
+                : config.tooltips.openMenu
             }
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
@@ -244,7 +254,7 @@ const Navbar: React.FC<NavbarProps> = ({
             exit={{ opacity: 0, y: -20 }}
           >
             <ul className="flex flex-col space-y-3 text-gray-700 dark:text-gray-300 font-medium">
-              {navbarLinks.map((link, index) => (
+              {links.map((link, index) => (
                 <li key={link.id}>
                   <button
                     ref={index === 0 ? firstMenuItemRef : null}
@@ -268,7 +278,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   bg-green-500 text-white hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700"
                   onClick={() => scrollToSection("footer")}
                 >
-                  {navbarConfig.buttons.contact}
+                  {config.buttons.contact}
                 </button>
               </li>
             </ul>

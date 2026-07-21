@@ -2,7 +2,8 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 import { Send, CheckCircle, AlertCircle, Sparkles } from "lucide-react";
-import { contactInfos, copyrightText } from "../data/dataFooter";
+import { contactInfos, copyrightText, footerTexts } from "../data/dataFooter";
+import { useLanguage } from "../context/LanguageContext";
 
 interface FooterProps {
   darkMode: boolean;
@@ -13,6 +14,9 @@ const Footer: React.FC<FooterProps> = () => {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const { language } = useLanguage();
+  const infos = contactInfos[language];
+  const t = footerTexts[language];
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,14 +38,14 @@ const Footer: React.FC<FooterProps> = () => {
           setSent(true);
           setLoading(false);
           form.current?.reset();
-          
+
           setTimeout(() => setSent(false), 5000);
         },
         (error) => {
           console.error("Erreur lors de l'envoi:", error.text);
           setError(true);
           setLoading(false);
-          
+
           setTimeout(() => setError(false), 5000);
         }
       );
@@ -61,36 +65,36 @@ const Footer: React.FC<FooterProps> = () => {
           className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white flex items-center justify-center gap-3 flex-wrap"
         >
           <motion.div
-            animate={{ 
+            animate={{
               rotate: [0, 10, -10, 10, 0],
-              scale: [1, 1.1, 1, 1.1, 1]
+              scale: [1, 1.1, 1, 1.1, 1],
             }}
-            transition={{ 
+            transition={{
               duration: 2,
               repeat: Infinity,
-              repeatDelay: 1
+              repeatDelay: 1,
             }}
           >
             <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-green-500 dark:text-green-400" />
           </motion.div>
-          
+
           <span>
-            Me{" "}
+            {t.titleBefore}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-600 dark:from-green-400 dark:to-green-500">
-              Contacter
+              {t.titleHighlight}
             </span>
           </span>
-          
+
           <motion.div
-            animate={{ 
+            animate={{
               rotate: [0, -10, 10, -10, 0],
-              scale: [1, 1.1, 1, 1.1, 1]
+              scale: [1, 1.1, 1, 1.1, 1],
             }}
-            transition={{ 
+            transition={{
               duration: 2,
               repeat: Infinity,
               repeatDelay: 1,
-              delay: 0.3
+              delay: 0.3,
             }}
           >
             <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-green-500 dark:text-green-400" />
@@ -98,7 +102,7 @@ const Footer: React.FC<FooterProps> = () => {
         </motion.h2>
 
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-          Une question, une collaboration ou un projet en tête ? Envoyez-moi un message et je vous répondrai rapidement.
+          {t.subtitle}
         </p>
 
         {/* Formulaire de contact */}
@@ -120,7 +124,7 @@ const Footer: React.FC<FooterProps> = () => {
             >
               <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
               <p className="text-green-700 dark:text-green-300 font-medium">
-                Message envoyé avec succès ! Je vous répondrai bientôt.
+                {t.successMessage}
               </p>
             </motion.div>
           )}
@@ -134,7 +138,7 @@ const Footer: React.FC<FooterProps> = () => {
             >
               <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400" />
               <p className="text-red-700 dark:text-red-300 font-medium">
-                Erreur lors de l'envoi. Veuillez réessayer.
+                {t.errorMessage}
               </p>
             </motion.div>
           )}
@@ -142,7 +146,7 @@ const Footer: React.FC<FooterProps> = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
             <div>
               <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">
-                Nom complet
+                {t.fullName}
               </label>
               <input
                 type="text"
@@ -153,13 +157,13 @@ const Footer: React.FC<FooterProps> = () => {
                            bg-transparent text-gray-900 dark:text-gray-100 
                            focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all
                            disabled:opacity-50 disabled:cursor-not-allowed"
-                placeholder="Votre nom et prénom"
+                placeholder={t.fullNamePlaceholder}
               />
             </div>
 
             <div>
               <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">
-                Adresse email
+                {t.email}
               </label>
               <input
                 type="email"
@@ -170,14 +174,14 @@ const Footer: React.FC<FooterProps> = () => {
                            bg-transparent text-gray-900 dark:text-gray-100 
                            focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all
                            disabled:opacity-50 disabled:cursor-not-allowed"
-                placeholder="exemple@gmail.com"
+                placeholder={t.emailPlaceholder}
               />
             </div>
           </div>
 
           <div className="mb-6">
             <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">
-              Message
+              {t.message}
             </label>
             <textarea
               name="message"
@@ -188,7 +192,7 @@ const Footer: React.FC<FooterProps> = () => {
                          bg-transparent text-gray-900 dark:text-gray-100 
                          focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all resize-none
                          disabled:opacity-50 disabled:cursor-not-allowed"
-              placeholder="Votre message..."
+              placeholder={t.messagePlaceholder}
             />
           </div>
 
@@ -206,17 +210,17 @@ const Footer: React.FC<FooterProps> = () => {
             {loading ? (
               <>
                 <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                Envoi en cours...
+                {t.sending}
               </>
             ) : sent ? (
               <>
                 <CheckCircle size={18} />
-                Message envoyé !
+                {t.sent}
               </>
             ) : (
               <>
                 <Send size={18} />
-                Envoyer le message
+                {t.send}
               </>
             )}
           </motion.button>
@@ -229,7 +233,7 @@ const Footer: React.FC<FooterProps> = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 text-gray-700 dark:text-gray-300"
         >
-          {contactInfos.map(({ icon: Icon, value }, i) => (
+          {infos.map(({ icon: Icon, value }, i) => (
             <div key={i} className="flex flex-col items-center">
               <Icon className="w-6 h-6 text-green-500 mb-2" />
               <p>{value}</p>
@@ -239,7 +243,7 @@ const Footer: React.FC<FooterProps> = () => {
 
         {/* Copyright */}
         <div className="mt-16 pt-6 border-t border-gray-200 dark:border-gray-700 text-sm text-gray-500 dark:text-gray-400">
-          {copyrightText}
+          {copyrightText[language]}
         </div>
       </div>
     </div>

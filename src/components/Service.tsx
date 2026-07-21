@@ -2,12 +2,42 @@ import React from "react";
 import { motion } from "framer-motion";
 import { services } from "../data/serviceData";
 import { Sparkles } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+import type { Language } from "../context/LanguageContext";
 
 interface ServiceProps {
   darkMode: boolean;
 }
 
+const sectionTexts: Record<Language, {
+  titleBefore: string;
+  titleHighlight: string;
+  subtitle: string;
+}> = {
+  fr: {
+    titleBefore: "Mes",
+    titleHighlight: "Services",
+    subtitle:
+      "Des solutions sur mesure pour accompagner vos projets digitaux, de la conception au déploiement",
+  },
+  en: {
+    titleBefore: "My",
+    titleHighlight: "Services",
+    subtitle:
+      "Tailored solutions to support your digital projects, from design to deployment",
+  },
+  de: {
+    titleBefore: "Meine",
+    titleHighlight: "Dienstleistungen",
+    subtitle:
+      "Maßgeschneiderte Lösungen zur Begleitung Ihrer digitalen Projekte, von der Konzeption bis zur Bereitstellung",
+  },
+};
+
 const Service: React.FC<ServiceProps> = () => {
+  const { language } = useLanguage();
+  const t = sectionTexts[language];
+
   return (
     <section
       id="service"
@@ -35,7 +65,6 @@ const Service: React.FC<ServiceProps> = () => {
               transition={{ duration: 0.8 }}
               className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-white flex-wrap"
             >
-              {/* Sparkles gauche */}
               <motion.span
                 animate={{ rotate: [0, 10, -10, 10, 0], scale: [1, 1.15, 1] }}
                 transition={{
@@ -48,15 +77,13 @@ const Service: React.FC<ServiceProps> = () => {
                 <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-green-500 dark:text-green-400" />
               </motion.span>
 
-              {/* Titre */}
               <span>
-                Mes{" "}
+                {t.titleBefore}{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-600 dark:from-green-400 dark:to-green-500">
-                  Services
+                  {t.titleHighlight}
                 </span>
               </span>
 
-              {/* Sparkles droite */}
               <motion.span
                 animate={{ rotate: [0, -10, 10, -10, 0], scale: [1, 1.15, 1] }}
                 transition={{
@@ -71,8 +98,7 @@ const Service: React.FC<ServiceProps> = () => {
             </motion.h2>
 
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto px-4">
-              Des solutions sur mesure pour accompagner vos projets digitaux, de
-              la conception au déploiement
+              {t.subtitle}
             </p>
           </motion.div>
 
@@ -80,25 +106,24 @@ const Service: React.FC<ServiceProps> = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
             {services.map((service, index) => {
               const Icon = service.icon;
+              const tr = service.translations[language];
               return (
                 <motion.div
-                  key={index}
+                  key={service.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="group relative"
                 >
-                  {/* Effet glow - VERT */}
+                  {/* Effet glow */}
                   <div className="absolute inset-0 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl sm:rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
 
                   {/* Carte */}
                   <div className="relative h-full bg-white dark:bg-gray-800/90 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 dark:border-gray-700 hover:border-green-400 dark:hover:border-green-500 overflow-hidden">
-                    {/* Barre décorative - VERT */}
                     <div className="h-1.5 sm:h-2 bg-gradient-to-r from-green-400 to-green-600" />
 
                     <div className="p-5 sm:p-6">
-                      {/* Icône - VERT */}
                       <motion.div
                         whileHover={{ rotate: 360, scale: 1.1 }}
                         transition={{ duration: 0.6 }}
@@ -107,19 +132,16 @@ const Service: React.FC<ServiceProps> = () => {
                         <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                       </motion.div>
 
-                      {/* Titre */}
                       <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
-                        {service.title}
+                        {tr.title}
                       </h3>
 
-                      {/* Description */}
                       <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-5 leading-relaxed">
-                        {service.description}
+                        {tr.description}
                       </p>
 
-                      {/* Features */}
                       <ul className="space-y-1.5 sm:space-y-2">
-                        {service.features.map((feature, i) => (
+                        {tr.features.map((feature, i) => (
                           <motion.li
                             key={i}
                             initial={{ opacity: 0, x: -10 }}
@@ -127,7 +149,6 @@ const Service: React.FC<ServiceProps> = () => {
                             transition={{ duration: 0.3, delay: i * 0.1 }}
                             className="flex items-start gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400"
                           >
-                            {/* Point vert */}
                             <span className="mt-1 w-1.5 h-1.5 rounded-full bg-green-500 dark:bg-green-400 flex-shrink-0" />
                             <span>{feature}</span>
                           </motion.li>
@@ -135,7 +156,6 @@ const Service: React.FC<ServiceProps> = () => {
                       </ul>
                     </div>
 
-                    {/* Effet brillant */}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 group-hover:translate-x-full transition-all duration-1000 pointer-events-none" />
                   </div>
                 </motion.div>

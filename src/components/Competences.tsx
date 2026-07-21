@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { competences } from "../data/competenceData";
 import type { Comp } from "../data/competenceData";
+import { useLanguage } from "../context/LanguageContext";
 import { Sparkles } from "lucide-react";
 
 interface CompetenceProps {
@@ -14,7 +15,32 @@ const fadeInUp = {
   transition: { duration: 0.6 },
 };
 
+const sectionTexts: Record<string, { titleBefore: string; titleHighlight: string; subtitle: string; footerBadge: string }> = {
+  fr: {
+    titleBefore: "Mes",
+    titleHighlight: "Compétences",
+    subtitle: "Aperçu de mes compétences techniques et outils, avec mon niveau de maîtrise.",
+    footerBadge: "En amélioration continue — toujours à jour sur les nouvelles technologies.",
+  },
+  en: {
+    titleBefore: "My",
+    titleHighlight: "Skills",
+    subtitle: "Overview of my technical skills and tools, with my proficiency level.",
+    footerBadge: "Continuously improving — always up to date with new technologies.",
+  },
+  de: {
+    titleBefore: "Meine",
+    titleHighlight: "Fähigkeiten",
+    subtitle: "Überblick über meine technischen Fähigkeiten und Tools mit meinem Kenntnisstand.",
+    footerBadge: "Ständige Weiterentwicklung — immer auf dem neuesten Stand der Technologien.",
+  },
+};
+
 const Competences: React.FC<CompetenceProps> = () => {
+  const { language } = useLanguage();
+  const comps = competences[language];
+  const texts = sectionTexts[language];
+
   return (
     <section
       id="competence"
@@ -36,8 +62,8 @@ const Competences: React.FC<CompetenceProps> = () => {
           </motion.div>
 
           <span>
-            Mes{" "}
-            <span className="text-green-600 dark:text-green-400">Compétences</span>
+            {texts.titleBefore}{" "}
+            <span className="text-green-600 dark:text-green-400">{texts.titleHighlight}</span>
           </span>
 
           <motion.div
@@ -53,12 +79,12 @@ const Competences: React.FC<CompetenceProps> = () => {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="text-center text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 mb-10 sm:mb-12 md:mb-16 max-w-2xl mx-auto"
         >
-          Aperçu de mes compétences techniques et outils, avec mon niveau de maîtrise.
+          {texts.subtitle}
         </motion.p>
 
         {/* Grille : 1 col mobile → 2 col tablet → 3 col desktop → 4 col xl */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
-          {competences.map((comp: Comp, i) => {
+          {comps.map((comp: Comp, i) => {
             const Icon = comp.icon;
             return (
               <motion.div
@@ -136,7 +162,7 @@ const Competences: React.FC<CompetenceProps> = () => {
           <div className="inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-full bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
             <span className="text-xl sm:text-2xl">🚀</span>
             <p className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">
-              En amélioration continue — toujours à jour sur les nouvelles technologies.
+              {texts.footerBadge}
             </p>
           </div>
         </motion.div>

@@ -30,7 +30,11 @@ const isUnknownHash = () => {
 };
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+    const saved = localStorage.getItem("darkMode");
+    if (saved !== null) return saved === "true";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
   const [activeSection, setActiveSection] = useState("accueil");
   const [notFound, setNotFound] = useState(isUnknownHash);
 
@@ -99,6 +103,7 @@ const App = () => {
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
+    localStorage.setItem("darkMode", String(darkMode));
   }, [darkMode]);
 
   /** ============================
