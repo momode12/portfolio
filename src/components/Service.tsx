@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { services } from "../data/serviceData";
-import { Sparkles } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import type { Language } from "../context/LanguageContext";
 
@@ -65,36 +64,12 @@ const Service: React.FC<ServiceProps> = () => {
               transition={{ duration: 0.8 }}
               className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-white flex-wrap"
             >
-              <motion.span
-                animate={{ rotate: [0, 10, -10, 10, 0], scale: [1, 1.15, 1] }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatDelay: 2,
-                  ease: "easeInOut",
-                }}
-              >
-                <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-green-500 dark:text-green-400" />
-              </motion.span>
-
               <span>
                 {t.titleBefore}{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-600 dark:from-green-400 dark:to-green-500">
                   {t.titleHighlight}
                 </span>
               </span>
-
-              <motion.span
-                animate={{ rotate: [0, -10, 10, -10, 0], scale: [1, 1.15, 1] }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatDelay: 2,
-                  ease: "easeInOut",
-                }}
-              >
-                <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-green-500 dark:text-green-400" />
-              </motion.span>
             </motion.h2>
 
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto px-4">

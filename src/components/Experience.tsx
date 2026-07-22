@@ -6,7 +6,6 @@ import {
   MapPin,
   GraduationCap,
   Award,
-  Sparkles,
   Eye,
 } from "lucide-react";
 import { experiences, educations } from "../data/experienceData";
@@ -135,19 +134,6 @@ const Experience: React.FC<ExperienceProps> = () => {
           className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3 md:mb-4 flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-3 flex-wrap px-2 xs:px-4">
-            <motion.div
-              animate={{
-                rotate: [0, 10, -10, 10, 0],
-                scale: [1, 1.1, 1, 1.1, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatDelay: 1,
-              }}
-            >
-              <Sparkles className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-green-500 dark:text-green-400" />
-            </motion.div>
 
             <span className="leading-tight">
               {t.expTitleBefore}{" "}
@@ -155,21 +141,6 @@ const Experience: React.FC<ExperienceProps> = () => {
                 {t.expTitleHighlight}
               </span>
             </span>
-
-            <motion.div
-              animate={{
-                rotate: [0, -10, 10, -10, 0],
-                scale: [1, 1.1, 1, 1.1, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatDelay: 1,
-                delay: 0.3,
-              }}
-            >
-              <Sparkles className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-green-500 dark:text-green-400" />
-            </motion.div>
           </h2>
           <p className="text-sm xs:text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2 xs:px-4">
             {t.expSubtitle}
@@ -269,19 +240,6 @@ const Experience: React.FC<ExperienceProps> = () => {
           className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3 md:mb-4 flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-3 flex-wrap px-2 xs:px-4">
-            <motion.div
-              animate={{
-                rotate: [0, 10, -10, 10, 0],
-                scale: [1, 1.1, 1, 1.1, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatDelay: 1,
-              }}
-            >
-              <Sparkles className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-green-500 dark:text-green-400" />
-            </motion.div>
 
             <span className="leading-tight">
               {t.eduTitleBefore}{" "}
@@ -289,21 +247,6 @@ const Experience: React.FC<ExperienceProps> = () => {
                 {t.eduTitleHighlight}
               </span>
             </span>
-
-            <motion.div
-              animate={{
-                rotate: [0, -10, 10, -10, 0],
-                scale: [1, 1.1, 1, 1.1, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatDelay: 1,
-                delay: 0.3,
-              }}
-            >
-              <Sparkles className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-green-500 dark:text-green-400" />
-            </motion.div>
           </h2>
           <p className="text-sm xs:text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2 xs:px-4">
             {t.eduSubtitle}
@@ -431,7 +374,6 @@ const Experience: React.FC<ExperienceProps> = () => {
           className="mt-8 xs:mt-10 sm:mt-12 md:mt-16 text-center px-2 xs:px-4"
         >
           <div className="inline-flex items-center gap-1.5 xs:gap-2 sm:gap-3 px-3 xs:px-4 sm:px-6 md:px-8 py-2 xs:py-3 sm:py-4 rounded-full bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border border-green-200 dark:border-green-800 shadow-lg">
-            <span className="text-lg xs:text-xl sm:text-2xl">🚀</span>
             <p className="text-xs xs:text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300">
               {t.finalBadge}
             </p>

@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { aproposTexts } from "../data/aproposData";
 import { useLanguage } from "../context/LanguageContext";
-import { Sparkles } from "lucide-react";
 
 interface AproposProps {
   darkMode: boolean;
@@ -37,24 +36,12 @@ const Apropos: React.FC<AproposProps> = () => {
           className="text-center mb-8 sm:mb-12"
         >
           <div className="inline-flex items-center gap-2 sm:gap-3 mb-2 flex-wrap justify-center">
-            <motion.div
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-            >
-              <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-green-500 dark:text-green-400" />
-            </motion.div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
               {title.about}{" "}
               <span className="text-green-600 dark:text-green-400 font-bold">
                 {title.me}
               </span>
             </h2>
-            <motion.div
-              animate={{ rotate: [0, -10, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-            >
-              <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-green-500 dark:text-green-400" />
-            </motion.div>
           </div>
         </motion.div>
 

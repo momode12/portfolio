@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Globe, ArrowUpRight, Sparkles } from "lucide-react";
+import { Github, Globe, ArrowUpRight } from "lucide-react";
 import { projects } from "../data/projectData";
 import { useLanguage } from "../context/LanguageContext";
 import type { Language } from "../context/LanguageContext";
@@ -83,40 +83,12 @@ const Projets: React.FC<ProjectProps> = () => {
           {...fadeInUp}
           className="flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-3 md:gap-4 text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 xs:mb-4 sm:mb-6 text-gray-900 dark:text-white px-2"
         >
-          <motion.span
-            animate={{
-              rotate: [0, 10, -10, 10, 0],
-              scale: [1, 1.15, 1],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              repeatDelay: 2,
-              ease: "easeInOut",
-            }}
-          >
-            <Sparkles className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-green-500 dark:text-green-400 flex-shrink-0" />
-          </motion.span>
 
           <span className="leading-tight">
             {t.titleBefore}{" "}
             <span className="text-green-600 dark:text-green-400">{t.titleHighlight}</span>
           </span>
 
-          <motion.span
-            animate={{
-              rotate: [0, -10, 10, -10, 0],
-              scale: [1, 1.15, 1],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              repeatDelay: 2,
-              ease: "easeInOut",
-            }}
-          >
-            <Sparkles className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-green-500 dark:text-green-400 flex-shrink-0" />
-          </motion.span>
         </motion.h2>
 
         <motion.p
@@ -243,7 +215,6 @@ const Projets: React.FC<ProjectProps> = () => {
 
         <motion.div {...fadeInUp} className="mt-10 xs:mt-12 sm:mt-16 md:mt-20 text-center px-2 xs:px-4">
           <div className="inline-flex items-center gap-2 xs:gap-2.5 sm:gap-3 px-3 xs:px-4 sm:px-6 md:px-8 py-2 xs:py-3 sm:py-4 rounded-full bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border border-green-200 dark:border-green-800">
-            <span className="text-lg xs:text-xl sm:text-2xl flex-shrink-0">💼</span>
             <p className="text-xs xs:text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300">
               {t.badge}
             </p>

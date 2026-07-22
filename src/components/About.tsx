@@ -5,7 +5,6 @@ import {
   Download,
   GraduationCap,
   ChevronRight,
-  Sparkles,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import profilePic from "../assets/project/soutenance.jpg";
@@ -48,7 +47,6 @@ const About: React.FC<AboutProps> = () => {
                  dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 
                  transition-colors duration-500 overflow-hidden"
     >
-      {/* Éléments décoratifs animés - adaptés mobile */}
       <div className="absolute top-10 sm:top-20 left-2 sm:left-10 w-48 h-48 sm:w-72 md:w-96 sm:h-72 md:h-96 bg-green-300/20 dark:bg-green-500/10 rounded-full blur-3xl animate-pulse" />
       <div
         className="absolute bottom-10 sm:bottom-20 right-2 sm:right-10 w-40 h-40 sm:w-64 md:w-80 sm:h-64 md:h-80 bg-blue-300/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse"
@@ -119,7 +117,6 @@ const About: React.FC<AboutProps> = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="flex items-center gap-1.5 xs:gap-2 justify-center md:justify-start flex-wrap"
               >
-                <Sparkles className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 text-green-500 dark:text-green-400 flex-shrink-0" />
                 <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
                   {texts.name}{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-600 dark:from-green-400 dark:to-green-500">

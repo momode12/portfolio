@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
-import { Send, CheckCircle, AlertCircle, Sparkles } from "lucide-react";
+import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { contactInfos, copyrightText, footerTexts } from "../data/dataFooter";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -64,41 +64,12 @@ const Footer: React.FC<FooterProps> = () => {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white flex items-center justify-center gap-3 flex-wrap"
         >
-          <motion.div
-            animate={{
-              rotate: [0, 10, -10, 10, 0],
-              scale: [1, 1.1, 1, 1.1, 1],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatDelay: 1,
-            }}
-          >
-            <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-green-500 dark:text-green-400" />
-          </motion.div>
-
           <span>
             {t.titleBefore}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-600 dark:from-green-400 dark:to-green-500">
               {t.titleHighlight}
             </span>
           </span>
-
-          <motion.div
-            animate={{
-              rotate: [0, -10, 10, -10, 0],
-              scale: [1, 1.1, 1, 1.1, 1],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatDelay: 1,
-              delay: 0.3,
-            }}
-          >
-            <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-green-500 dark:text-green-400" />
-          </motion.div>
         </motion.h2>
 
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">

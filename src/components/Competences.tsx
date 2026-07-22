@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { competences } from "../data/competenceData";
 import type { Comp } from "../data/competenceData";
 import { useLanguage } from "../context/LanguageContext";
-import { Sparkles } from "lucide-react";
 
 interface CompetenceProps {
   darkMode: boolean;
@@ -54,24 +53,12 @@ const Competences: React.FC<CompetenceProps> = () => {
           {...fadeInUp}
           className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 sm:mb-6 text-gray-900 dark:text-white flex items-center justify-center gap-2 sm:gap-3 flex-wrap"
         >
-          <motion.div
-            animate={{ rotate: [0, 10, -10, 10, 0], scale: [1, 1.1, 1, 1.1, 1] }}
-            transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
-          >
-            <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-green-500 dark:text-green-400" />
-          </motion.div>
 
           <span>
             {texts.titleBefore}{" "}
             <span className="text-green-600 dark:text-green-400">{texts.titleHighlight}</span>
           </span>
 
-          <motion.div
-            animate={{ rotate: [0, -10, 10, -10, 0], scale: [1, 1.1, 1, 1.1, 1] }}
-            transition={{ duration: 2, repeat: Infinity, repeatDelay: 1, delay: 0.3 }}
-          >
-            <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-green-500 dark:text-green-400" />
-          </motion.div>
         </motion.h2>
 
         <motion.p
@@ -160,7 +147,6 @@ const Competences: React.FC<CompetenceProps> = () => {
           className="mt-12 sm:mt-16 text-center"
         >
           <div className="inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-full bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
-            <span className="text-xl sm:text-2xl">🚀</span>
             <p className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">
               {texts.footerBadge}
             </p>
