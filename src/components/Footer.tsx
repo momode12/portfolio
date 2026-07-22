@@ -30,7 +30,7 @@ const Footer: React.FC<FooterProps> = () => {
         "service_julien1204",
         "template_julien1204",
         form.current,
-        "An-QdrhnClt4ckpzk"
+        "An-QdrhnClt4ckpzk",
       )
       .then(
         (result) => {
@@ -47,13 +47,15 @@ const Footer: React.FC<FooterProps> = () => {
           setLoading(false);
 
           setTimeout(() => setError(false), 5000);
-        }
+        },
       );
   };
 
   return (
-    <div className="pt-0 pb-20 sm:pt-0 sm:pb-24 bg-gradient-to-b from-white via-green-50 to-white 
-                 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 transition-colors duration-500  ">
+    <div
+      className="pt-0 pb-20 sm:pt-0 sm:pb-24 bg-gradient-to-b from-white via-green-50 to-white 
+                 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 transition-colors duration-500  "
+    >
       <div className="absolute top-0 left-0 w-96 h-96 bg-green-300/10 dark:bg-green-400/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-300/10 dark:bg-blue-400/5 rounded-full blur-3xl" />
 
@@ -159,10 +161,14 @@ const Footer: React.FC<FooterProps> = () => {
               rows={5}
               required
               disabled={loading}
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 
-                         bg-transparent text-gray-900 dark:text-gray-100 
-                         focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all resize-none
-                         disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-3 rounded-xl
+border border-gray-300 dark:border-gray-600 
+                           bg-transparent text-gray-900 dark:text-gray-100 
+placeholder:text-gray-500 dark:placeholder:text-gray-400
+focus:ring-2 focus:ring-green-500 focus:border-green-500
+outline-none transition-all
+disabled:opacity-50 disabled:cursor-not-allowed
+resize-none"
               placeholder={t.messagePlaceholder}
             />
           </div>
