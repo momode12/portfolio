@@ -110,7 +110,6 @@ const Apropos: React.FC<AproposProps> = () => {
             <div className="relative bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 
                           px-4 sm:px-6 md:px-8 py-4 sm:py-5 rounded-full border-2 border-green-200 dark:border-green-800 shadow-xl">
               <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
-                <span className="text-2xl sm:text-3xl">🎯</span>
                 <p className="text-sm sm:text-base md:text-lg font-medium text-gray-800 dark:text-gray-200 max-w-2xl leading-relaxed text-center">
                   {texts.conclusion.before}{" "}
                   <span className="font-bold text-green-600 dark:text-green-400">
