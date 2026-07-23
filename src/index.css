@@ -1,10 +1,25 @@
 @import "tailwindcss";
-/* Configuration Tailwind v4 */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  /* Vos couleurs personnalisées si nécessaire */
-  --color-primary: #22c55e;
-  --color-primary-dark: #166534;
+  --color-brand-50: #f0fdf4;
+  --color-brand-100: #dcfce7;
+  --color-brand-200: #bbf7d0;
+  --color-brand-300: #86efac;
+  --color-brand-400: #4ade80;
+  --color-brand-500: #22c55e;
+  --color-brand-600: #16a34a;
+  --color-brand-700: #15803d;
+  --color-brand-800: #166534;
+  --color-brand-900: #14532d;
 }
 
-/* IMPORTANT : Active le mode sombre basé sur la classe 'dark' */
-@custom-variant dark (&:is(.dark *));
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}

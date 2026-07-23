@@ -8,7 +8,7 @@ import {
   FolderKanban,
   Users,
 } from "lucide-react";
-import type { Language } from "../context/LanguageContext";
+import type { Language } from "../types/common";
 
 export interface Tech {
   name: string;

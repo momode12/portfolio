@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import type { Engine } from "tsparticles-engine";
+import { BRAND_HEX } from "../lib/colors";
 
 interface ParticlesBackgroundProps {
   darkMode: boolean;
@@ -60,12 +61,12 @@ const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({ darkMode }) =
         },
         particles: {
           color: {
-            value: darkMode 
-              ? ["#ffffff", "#22c55e", "#10b981", "#34d399"] 
-              : ["#1f2937", "#166534", "#15803d", "#22c55e"],
+            value: darkMode
+              ? ["#ffffff", BRAND_HEX[500], BRAND_HEX[600], BRAND_HEX[400]]
+              : ["#1f2937", BRAND_HEX[800], BRAND_HEX[700], BRAND_HEX[500]],
           },
           links: {
-            enable: false, // Pas de lignes, effet plus spatial
+            enable: false,
           },
           move: {
             enable: true,
@@ -104,18 +105,16 @@ const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({ darkMode }) =
               sync: false,
             },
           },
-          // Effet d'étoiles scintillantes
           twinkle: {
             particles: {
               enable: true,
               frequency: 0.05,
               opacity: 1,
               color: {
-                value: darkMode ? "#ffffff" : "#22c55e",
+                value: darkMode ? "#ffffff" : BRAND_HEX[500],
               },
             },
           },
-          // Orbites subtiles
           orbit: {
             enable: true,
             opacity: 0.3,
@@ -129,7 +128,6 @@ const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({ darkMode }) =
         },
         detectRetina: true,
         smooth: true,
-        // Effet de profondeur avec plusieurs couches
         emitters: {
           direction: "none",
           life: {

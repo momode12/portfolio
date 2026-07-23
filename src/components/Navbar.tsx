@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { navbarLinks, navbarConfig } from "../data/navbarData";
 import { useLanguage } from "../context/LanguageContext";
+import { staggerContainer } from "../lib/animations";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 interface NavbarProps {
@@ -69,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-        {/* Logo - adapté aux petits écrans, sans troncature forcée */}
+        {/* Logo */}
         <motion.div
           className="text-sm xs:text-base sm:text-lg md:text-xl font-bold flex items-center cursor-pointer select-none whitespace-nowrap"
           initial={{ opacity: 0, x: -40 }}
@@ -86,7 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({
           <span className="text-black dark:text-white">
             {config.logo.firstName}
           </span>
-          <span className="ml-1 text-green-600 dark:text-green-400">
+          <span className="ml-1 text-brand-600 dark:text-brand-400">
             {config.logo.lastName}
           </span>
         </motion.div>
@@ -96,10 +97,7 @@ const Navbar: React.FC<NavbarProps> = ({
           className="hidden md:flex items-center space-x-4 lg:space-x-6 text-gray-700 dark:text-gray-300 font-medium"
           initial="hidden"
           animate="visible"
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.08 } },
-          }}
+          variants={staggerContainer}
         >
           {links.map((link) => (
             <motion.li key={link.id}>
@@ -109,8 +107,8 @@ const Navbar: React.FC<NavbarProps> = ({
                   px-3 py-2 rounded-lg transition duration-200 cursor-pointer
                   ${
                     activeSection === link.id
-                      ? "bg-gray-200 dark:bg-gray-700 text-green-600 dark:text-green-400 font-semibold"
-                      : "hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-green-600 dark:hover:text-green-400"
+                      ? "bg-gray-200 dark:bg-gray-700 text-brand-600 dark:text-brand-400 font-semibold"
+                      : "hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-brand-600 dark:hover:text-brand-400"
                   }
                 `}
               >
@@ -169,17 +167,16 @@ const Navbar: React.FC<NavbarProps> = ({
 
           <button
             onClick={() => scrollToSection("footer")}
-            className="px-5 cursor-pointer py-2.5 bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white font-semibold rounded-lg transition"
+            className="px-5 cursor-pointer py-2.5 bg-brand-500 hover:bg-brand-600 dark:bg-brand-600 dark:hover:bg-brand-700 text-white font-semibold rounded-lg transition"
           >
             {config.buttons.contact}
           </button>
         </motion.div>
 
-        {/* Boutons Mobile - Visibles et adaptés dès le start */}
+        {/* Boutons Mobile */}
         <div className="md:hidden flex items-center space-x-3 flex-shrink-0">
           <LanguageSwitcher />
 
-          {/* Dark Mode Mobile */}
           <button
             onClick={toggleDarkMode}
             className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-sm"
@@ -196,10 +193,9 @@ const Navbar: React.FC<NavbarProps> = ({
             )}
           </button>
 
-          {/* Menu Hamburger */}
           <button
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
             aria-label={
               menuOpen
                 ? config.tooltips.closeMenu
@@ -211,7 +207,7 @@ const Navbar: React.FC<NavbarProps> = ({
             {menuOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-green-600 dark:text-green-400"
+                className="h-6 w-6 text-brand-600 dark:text-brand-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -226,7 +222,7 @@ const Navbar: React.FC<NavbarProps> = ({
             ) : (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-green-600 dark:text-green-400"
+                className="h-6 w-6 text-brand-600 dark:text-brand-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -263,8 +259,8 @@ const Navbar: React.FC<NavbarProps> = ({
                       transition duration-150 ease-in-out rounded-lg px-3 py-2 block w-full text-left
                       ${
                         activeSection === link.id
-                          ? "bg-gray-200 dark:bg-gray-800 text-green-600 dark:text-green-400 font-semibold"
-                          : "bg-transparent hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-green-600 dark:hover:text-green-400"
+                          ? "bg-gray-200 dark:bg-gray-800 text-brand-600 dark:text-brand-400 font-semibold"
+                          : "bg-transparent hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-brand-600 dark:hover:text-brand-400"
                       }
                     `}
                   >
@@ -275,7 +271,7 @@ const Navbar: React.FC<NavbarProps> = ({
               <li>
                 <button
                   className="w-full px-4 py-2 rounded-lg font-semibold transition
-                  bg-green-500 text-white hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700"
+                  bg-brand-500 text-white hover:bg-brand-600 dark:bg-brand-600 dark:hover:bg-brand-700"
                   onClick={() => scrollToSection("footer")}
                 >
                   {config.buttons.contact}

@@ -19,21 +19,7 @@ import chatbot1 from "../assets/project/chatbot/chatbot1.jpg";
 import chatbot2 from "../assets/project/chatbot/chatbot2.jpg";
 import chatbot3 from "../assets/project/chatbot/chatbot3.jpg";
 import chatbot4 from "../assets/project/chatbot/chatbot4.jpg";
-import type { Language } from "../context/LanguageContext";
-
-interface ProjectTranslation {
-  title: string;
-  desc: string;
-}
-
-export interface Project {
-  id: string;
-  stack: string[];
-  images: string[];
-  github: string;
-  demo: string;
-  translations: Record<Language, ProjectTranslation>;
-}
+import type { Project } from "../types/project";
 
 // Le stack, les images et les liens sont identiques quelle que soit la langue
 export const projects: Project[] = [

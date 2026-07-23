@@ -6,30 +6,7 @@ import {
   LineChart,
   Rocket,
 } from "lucide-react";
-import type { Language } from "../context/LanguageContext";
-
-/* =======================
-   TYPES
-======================= */
-
-interface ServiceTranslation {
-  title: string;
-  description: string;
-  features: string[];
-}
-
-export interface ServiceItem {
-  id: string;
-  icon: React.ElementType;
-  color: string;
-  gradientFrom: string;
-  gradientTo: string;
-  translations: Record<Language, ServiceTranslation>;
-}
-
-/* =======================
-   SERVICES
-======================= */
+import type { ServiceItem } from "../types/service";
 
 export const services: ServiceItem[] = [
   {

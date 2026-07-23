@@ -1,16 +1,14 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
-import {
-  Download,
-  GraduationCap,
-  ChevronRight,
-} from "lucide-react";
+import { Download, GraduationCap, ChevronRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import profilePic from "../assets/project/soutenance.jpg";
 import cvFile from "../assets/CV/CV_HERITIANA_Julien_Data_Scientist.pdf";
 import { expertises, socialLinks, aboutTexts } from "../data/aboutData";
 import { useLanguage } from "../context/LanguageContext";
+import { fadeInLeft, fadeInRight, buttonHover } from "../lib/animations";
+import { GRADIENT_TEXT, BUTTON_PRIMARY, BUTTON_OUTLINE } from "../lib/styles";
 
 interface AboutProps {
   darkMode: boolean;
@@ -47,7 +45,7 @@ const About: React.FC<AboutProps> = () => {
                  dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 
                  transition-colors duration-500 overflow-hidden"
     >
-      <div className="absolute top-10 sm:top-20 left-2 sm:left-10 w-48 h-48 sm:w-72 md:w-96 sm:h-72 md:h-96 bg-green-300/20 dark:bg-green-500/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-10 sm:top-20 left-2 sm:left-10 w-48 h-48 sm:w-72 md:w-96 sm:h-72 md:h-96 bg-brand-300/20 dark:bg-brand-500/10 rounded-full blur-3xl animate-pulse" />
       <div
         className="absolute bottom-10 sm:bottom-20 right-2 sm:right-10 w-40 h-40 sm:w-64 md:w-80 sm:h-64 md:h-80 bg-blue-300/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse"
         style={{ animationDelay: "1s" }}
@@ -57,38 +55,35 @@ const About: React.FC<AboutProps> = () => {
         <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-6 xs:gap-8 sm:gap-10 md:gap-12 items-center">
           {/* Section Image */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            {...fadeInLeft}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
             className="flex flex-col items-center md:items-start order-1 md:order-1"
           >
             <div className="relative group">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-green-400 to-green-600 blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
-              <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-green-400 via-green-500 to-green-600 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-brand-400 via-brand-500 to-brand-600 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" />
 
               <div className="relative">
                 <img
                   src={profilePic}
                   alt={texts.imageAlt}
-                  className="w-45 h-45 xs:w-40 xs:h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-4 border-white dark:border-gray-700 transition-all duration-500 group-hover:scale-105 group-hover:border-green-400 dark:group-hover:border-green-500 relative z-10"
+                  className="w-45 h-45 xs:w-40 xs:h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-4 border-white dark:border-gray-700 transition-all duration-500 group-hover:scale-105 group-hover:border-brand-400 dark:group-hover:border-brand-500 relative z-10"
                 />
 
-                {/* Badge animé */}
                 <motion.div
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 bg-gradient-to-br from-green-500 to-green-600 text-white p-2 xs:p-3 sm:p-4 rounded-full shadow-xl z-20"
+                  className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 bg-gradient-to-br from-brand-500 to-brand-600 text-white p-2 xs:p-3 sm:p-4 rounded-full shadow-xl z-20"
                 >
                   <GraduationCap className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                 </motion.div>
               </div>
             </div>
 
-            {/* Badges */}
             <div className="mt-4 xs:mt-5 sm:mt-6 md:mt-8 flex flex-wrap gap-2 sm:gap-3 justify-center md:justify-start">
               <motion.span
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="px-3 xs:px-4 sm:px-5 py-1.5 xs:py-2 sm:py-2.5 bg-gradient-to-r from-green-100 to-green-200 dark:from-green-900 dark:to-green-800 text-green-700 dark:text-green-300 rounded-full text-xs sm:text-sm font-bold flex items-center gap-1.5 sm:gap-2 shadow-lg border border-green-200 dark:border-green-700 cursor-default"
+                className="px-3 xs:px-4 sm:px-5 py-1.5 xs:py-2 sm:py-2.5 bg-gradient-to-r from-brand-100 to-brand-200 dark:from-brand-900 dark:to-brand-800 text-brand-700 dark:text-brand-300 rounded-full text-xs sm:text-sm font-bold flex items-center gap-1.5 sm:gap-2 shadow-lg border border-brand-200 dark:border-brand-700 cursor-default"
               >
                 <GraduationCap className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-[18px] sm:h-[18px]" /> {texts.badges.student}
               </motion.span>
@@ -104,12 +99,10 @@ const About: React.FC<AboutProps> = () => {
 
           {/* Section Texte */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            {...fadeInRight}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-3 xs:space-y-4 sm:space-y-5 md:space-y-6 order-2 md:order-2 text-center md:text-left"
           >
-            {/* Nom avec effet */}
             <div className="space-y-1.5 xs:space-y-2 sm:space-y-3">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -119,14 +112,11 @@ const About: React.FC<AboutProps> = () => {
               >
                 <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
                   {texts.name}{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-600 dark:from-green-400 dark:to-green-500">
-                    {texts.surname}
-                  </span>
+                  <span className={GRADIENT_TEXT}>{texts.surname}</span>
                 </h1>
               </motion.div>
             </div>
 
-            {/* Typewriter */}
             <div className="text-base xs:text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-medium h-6 xs:h-7 sm:h-8 min-h-[24px] xs:min-h-[28px] sm:min-h-[32px]">
               <Typewriter
                 key={language}
@@ -141,7 +131,7 @@ const About: React.FC<AboutProps> = () => {
             </div>
 
             <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto md:mx-0 text-left md:text-justify md:hyphens-auto">
-              {texts.description.intro} <span className="text-green-600 dark:text-green-400 font-semibold">{texts.description.fullStack}</span> et <span className="text-green-600 dark:text-green-400 font-semibold">{texts.description.dataEngineering}</span>. {texts.description.middle} <span className="text-green-600 dark:text-green-400 font-semibold">{texts.description.specializations.software}</span>, <span className="text-green-600 dark:text-green-400 font-semibold">{texts.description.specializations.dataEng}</span> et <span className="text-green-600 dark:text-green-400 font-semibold">{texts.description.specializations.ai}</span>.
+              {texts.description.intro} <span className="text-brand-600 dark:text-brand-400 font-semibold">{texts.description.fullStack}</span> et <span className="text-brand-600 dark:text-brand-400 font-semibold">{texts.description.dataEngineering}</span>. {texts.description.middle} <span className="text-brand-600 dark:text-brand-400 font-semibold">{texts.description.specializations.software}</span>, <span className="text-brand-600 dark:text-brand-400 font-semibold">{texts.description.specializations.dataEng}</span> et <span className="text-brand-600 dark:text-brand-400 font-semibold">{texts.description.specializations.ai}</span>.
             </p>
 
             {/* Boutons */}
@@ -149,23 +139,19 @@ const About: React.FC<AboutProps> = () => {
               <motion.a
                 href={cvFile}
                 download="CV_Julien.pdf"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center gap-1.5 xs:gap-2 px-5 xs:px-6 sm:px-8 py-2.5 xs:py-3 sm:py-4 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold rounded-lg xs:rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 text-xs xs:text-sm sm:text-base"
+                {...buttonHover}
+                className={`${BUTTON_PRIMARY} rounded-lg xs:rounded-xl text-xs xs:text-sm sm:text-base px-5 xs:px-6 sm:px-8 py-2.5 xs:py-3 sm:py-4`}
               >
                 <Download className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 flex-shrink-0" /> {texts.buttons.downloadCV}
               </motion.a>
 
               <motion.button
                 onClick={() => scrollToSection("apropos")}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center gap-1.5 xs:gap-2 px-5 xs:px-6 sm:px-8 py-2.5 xs:py-3 sm:py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-bold rounded-lg xs:rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-green-600 dark:border-green-500 hover:bg-green-50 dark:hover:bg-gray-700 cursor-pointer text-xs xs:text-sm sm:text-base"
+                {...buttonHover}
+                className={`${BUTTON_OUTLINE} rounded-lg xs:rounded-xl text-xs xs:text-sm sm:text-base px-5 xs:px-6 sm:px-8 py-2.5 xs:py-3 sm:py-4 cursor-pointer`}
               >
                 {texts.buttons.learnMore}{" "}
-                <ChevronRight
-                  className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0"
-                />
+                <ChevronRight className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               </motion.button>
             </div>
 

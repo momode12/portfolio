@@ -1,24 +1,4 @@
-// src/data/navbarData.ts
-export interface NavbarLink {
-  id: string;   // correspond à l'id de la section
-  name: string; // nom affiché dans la Navbar
-}
-
-export interface NavbarConfig {
-  logo: {
-    firstName: string;
-    lastName: string;
-  };
-  buttons: {
-    contact: string;
-  };
-  tooltips: {
-    darkMode: string;
-    lightMode: string;
-    openMenu: string;
-    closeMenu: string;
-  };
-}
+import type { NavbarLink, NavbarConfig } from "../types/navbar";
 
 export const navbarLinks: Record<"fr" | "en" | "de", NavbarLink[]> = {
   fr: [
@@ -49,13 +29,8 @@ export const navbarLinks: Record<"fr" | "en" | "de", NavbarLink[]> = {
 
 export const navbarConfig: Record<"fr" | "en" | "de", NavbarConfig> = {
   fr: {
-    logo: {
-      firstName: "HERITIANA",
-      lastName: "Julien",
-    },
-    buttons: {
-      contact: "Contacter",
-    },
+    logo: { firstName: "HERITIANA", lastName: "Julien" },
+    buttons: { contact: "Contacter" },
     tooltips: {
       darkMode: "Mode sombre",
       lightMode: "Mode clair",
@@ -64,13 +39,8 @@ export const navbarConfig: Record<"fr" | "en" | "de", NavbarConfig> = {
     },
   },
   en: {
-    logo: {
-      firstName: "HERITIANA",
-      lastName: "Julien",
-    },
-    buttons: {
-      contact: "Contact",
-    },
+    logo: { firstName: "HERITIANA", lastName: "Julien" },
+    buttons: { contact: "Contact" },
     tooltips: {
       darkMode: "Dark mode",
       lightMode: "Light mode",
@@ -79,13 +49,8 @@ export const navbarConfig: Record<"fr" | "en" | "de", NavbarConfig> = {
     },
   },
   de: {
-    logo: {
-      firstName: "HERITIANA",
-      lastName: "Julien",
-    },
-    buttons: {
-      contact: "Kontakt",
-    },
+    logo: { firstName: "HERITIANA", lastName: "Julien" },
+    buttons: { contact: "Kontakt" },
     tooltips: {
       darkMode: "Dunkler Modus",
       lightMode: "Heller Modus",

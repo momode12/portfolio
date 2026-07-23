@@ -9,7 +9,7 @@ import {
   Brain,
   Trophy,
 } from "lucide-react";
-import type { Language } from "../context/LanguageContext";
+import type { ExperienceItem, EducationItem } from "../types/experience";
 
 import pnudCert from "../assets/Certificat_diplome/ATTESTATION_DE_PARTICIPATION _ HERITIANA_Julien.pdf";
 import ideaCert from "../assets/Certificat_diplome/ATTESTATION_DE _ORMATION_Data_Science _HERITIANA_Julien.pdf";
@@ -23,42 +23,6 @@ import ideathon_ingedata from "../assets/Certificat_diplome/Certification_ideath
 import releveM1Transcript from "../assets/Certificat_diplome/RELEVE_DE_NOTE_M1_HERITIANA_Julien.pdf";
 import releveL2Transcript from "../assets/Certificat_diplome/RELEVE_DE_NOTE_L2_HERITIANA_Julien.pdf";
 import releveL1Transcript from "../assets/Certificat_diplome/RELEVE_DE_NOTE_L1_HERITIANA_Julien.pdf";
-
-interface ExperienceTranslation {
-  title: string;
-  company: string;
-  period: string;
-  description: string;
-}
-
-export interface ExperienceItem {
-  id: string;
-  icon: React.ElementType;
-  color: string;
-  gradientFrom: string;
-  gradientTo: string;
-  certificate?: string;
-  translations: Record<Language, ExperienceTranslation>;
-}
-
-interface EducationTranslation {
-  title: string;
-  institution: string;
-  period: string;
-  description: string;
-  mention?: string;
-}
-
-export interface EducationItem {
-  id: string;
-  icon: React.ElementType;
-  color: string;
-  gradientFrom: string;
-  gradientTo: string;
-  certificate?: string;
-  transcript?: string;
-  translations: Record<Language, EducationTranslation>;
-}
 
 export const experiences: ExperienceItem[] = [
   {

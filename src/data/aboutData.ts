@@ -1,14 +1,15 @@
 import { FaFacebookF, FaWhatsapp, FaLinkedinIn, FaInstagram, FaGithub, FaTwitter } from "react-icons/fa";
-import type { ComponentType } from "react";
-import type { Language } from "../context/LanguageContext";
+import type { Language } from "../types/common";
 
+// Note : SocialLink reste ici car spécifique à ce fichier (pas réutilisé ailleurs).
+// Si un jour il est réutilisé, le déplacer dans src/types/social.ts
 export interface SocialLink {
-  icon: ComponentType;
+  icon: React.ComponentType;
   url: string;
   color: string;
 }
 
-interface AboutTexts {
+export interface AboutTexts {
   name: string;
   surname: string;
   imageAlt: string;
@@ -34,7 +35,6 @@ interface AboutTexts {
   };
 }
 
-// Textes et labels traduits
 export const aboutTexts: Record<Language, AboutTexts> = {
   fr: {
     name: "HERITIANA",

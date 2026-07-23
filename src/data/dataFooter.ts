@@ -1,12 +1,6 @@
-// dataFooter.ts
 import { Mail, Phone, MapPin } from "lucide-react";
-import type { Language } from "../context/LanguageContext";
-
-export interface ContactInfo {
-  icon: React.ElementType;
-  label: string;
-  value: string;
-}
+import type { Language } from "../types/common";
+import type { ContactInfo } from "../types/contact";
 
 // Valeurs identiques dans toutes les langues (coordonnées réelles), seul le label change
 export const contactInfos: Record<Language, ContactInfo[]> = {
@@ -33,8 +27,7 @@ export const copyrightText: Record<Language, string> = {
   de: `© ${new Date().getFullYear()} HERITIANA Julien — Alle Rechte vorbehalten.`,
 };
 
-// Textes du formulaire et de la section contact
-export const footerTexts: Record<Language, {
+export interface FooterTexts {
   titleBefore: string;
   titleHighlight: string;
   subtitle: string;
@@ -49,7 +42,9 @@ export const footerTexts: Record<Language, {
   sending: string;
   sent: string;
   send: string;
-}> = {
+}
+
+export const footerTexts: Record<Language, FooterTexts> = {
   fr: {
     titleBefore: "Me",
     titleHighlight: "Contacter",

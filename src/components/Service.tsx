@@ -2,7 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { services } from "../data/serviceData";
 import { useLanguage } from "../context/LanguageContext";
-import type { Language } from "../context/LanguageContext";
+import type { Language } from "../types/common";
+import { fadeInDown, withDelay, iconSpin } from "../lib/animations";
+import { SECTION_BG, CARD_BASE, CARD_TOP_BAR, GRADIENT_TEXT, DECOR_BLOB } from "../lib/styles";
 
 interface ServiceProps {
   darkMode: boolean;
@@ -40,35 +42,21 @@ const Service: React.FC<ServiceProps> = () => {
   return (
     <section
       id="service"
-      className="pt-0 pb-12 sm:pb-16 md:pb-20 lg:pb-24 bg-gradient-to-b from-white via-green-50 to-white 
-                 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 transition-colors duration-500"
+      className={`pt-0 pb-12 sm:pb-16 md:pb-20 lg:pb-24 ${SECTION_BG}`}
     >
-      {/* Éléments décoratifs en arrière-plan */}
-      <div className="absolute top-0 left-2 sm:left-10 w-40 h-40 sm:w-72 sm:h-72 bg-green-200/20 dark:bg-green-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 sm:bottom-20 right-2 sm:right-10 w-48 h-48 sm:w-96 sm:h-96 bg-green-300/20 dark:bg-green-400/5 rounded-full blur-3xl" />
+      <div className={`${DECOR_BLOB} top-0 left-2 sm:left-10 w-40 h-40 sm:w-72 sm:h-72`} />
+      <div className={`${DECOR_BLOB} bottom-10 sm:bottom-20 right-2 sm:right-10 w-48 h-48 sm:w-96 sm:h-96 dark:bg-brand-400/5`} />
 
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* En-tête */}
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12 sm:mb-14 md:mb-16"
-          >
+          <motion.div {...fadeInDown} className="text-center mb-12 sm:mb-14 md:mb-16">
             <motion.h2
-              initial={{ opacity: 0, y: -30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              {...fadeInDown}
               className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-white flex-wrap"
             >
               <span>
                 {t.titleBefore}{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-600 dark:from-green-400 dark:to-green-500">
-                  {t.titleHighlight}
-                </span>
+                <span className={GRADIENT_TEXT}>{t.titleHighlight}</span>
               </span>
             </motion.h2>
 
@@ -77,7 +65,6 @@ const Service: React.FC<ServiceProps> = () => {
             </p>
           </motion.div>
 
-          {/* Grille de services */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
             {services.map((service, index) => {
               const Icon = service.icon;
@@ -88,26 +75,23 @@ const Service: React.FC<ServiceProps> = () => {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={withDelay(index)}
                   className="group relative"
                 >
-                  {/* Effet glow */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl sm:rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl sm:rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
 
-                  {/* Carte */}
-                  <div className="relative h-full bg-white dark:bg-gray-800/90 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 dark:border-gray-700 hover:border-green-400 dark:hover:border-green-500 overflow-hidden">
-                    <div className="h-1.5 sm:h-2 bg-gradient-to-r from-green-400 to-green-600" />
+                  <div className={`relative h-full ${CARD_BASE} rounded-2xl sm:rounded-3xl`}>
+                    <div className={CARD_TOP_BAR} />
 
                     <div className="p-5 sm:p-6">
                       <motion.div
-                        whileHover={{ rotate: 360, scale: 1.1 }}
-                        transition={{ duration: 0.6 }}
-                        className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center mb-4 sm:mb-5 shadow-lg"
+                        {...iconSpin}
+                        className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center mb-4 sm:mb-5 shadow-lg"
                       >
                         <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                       </motion.div>
 
-                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                         {tr.title}
                       </h3>
 
@@ -124,7 +108,7 @@ const Service: React.FC<ServiceProps> = () => {
                             transition={{ duration: 0.3, delay: i * 0.1 }}
                             className="flex items-start gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400"
                           >
-                            <span className="mt-1 w-1.5 h-1.5 rounded-full bg-green-500 dark:bg-green-400 flex-shrink-0" />
+                            <span className="mt-1 w-1.5 h-1.5 rounded-full bg-brand-500 dark:bg-brand-400 flex-shrink-0" />
                             <span>{feature}</span>
                           </motion.li>
                         ))}

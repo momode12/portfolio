@@ -1,32 +1,32 @@
-import type { Language } from "../context/LanguageContext";
+import type { Language } from "../types/common";
 
-interface AproposTexts {
+export interface AproposTexts {
   name: string;
   study: string;
   intro: {
-    before: string;      // "Je m'appelle"
-    afterName: string;   // ", étudiant en"
-    afterStudy: string;  // ". Passionné par la"
-    programming: string; // "programmation"
-    midData: string;     // ", la"
-    data: string;         // "data"
-    andAI: string;       // "et l'"
-    ai: string;           // "intelligence artificielle"
-    end: string;         // ", j'aime transformer des idées en solutions concrètes."
+    before: string;
+    afterName: string;
+    afterStudy: string;
+    programming: string;
+    midData: string;
+    data: string;
+    andAI: string;
+    ai: string;
+    end: string;
   };
   intro2: {
-    before: string;       // "Je m'intéresse également à la"
-    dataScience: string;  // "science des données"
-    mid: string;          // ", à"
-    dataAnalysis: string; // "l'analyse de données"
-    andAuto: string;      // "ainsi qu'à"
-    automation: string;   // "l'automatisation"
-    end: string;          // ", domaines que j'explore avec enthousiasme. J'adore apprendre de nouvelles technologies et relever des défis complexes."
+    before: string;
+    dataScience: string;
+    mid: string;
+    dataAnalysis: string;
+    andAuto: string;
+    automation: string;
+    end: string;
   };
   conclusion: {
-    before: string;              // "Soutenir la"
-    digitalTransformation: string; // "transformation numérique"
-    end: string;                 // "par le développement de solutions logicielles modernes."
+    before: string;
+    digitalTransformation: string;
+    end: string;
   };
 }
 

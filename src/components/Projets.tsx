@@ -3,17 +3,13 @@ import { motion } from "framer-motion";
 import { Github, Globe, ArrowUpRight } from "lucide-react";
 import { projects } from "../data/projectData";
 import { useLanguage } from "../context/LanguageContext";
-import type { Language } from "../context/LanguageContext";
+import type { Language } from "../types/common";
+import { fadeInUp } from "../lib/animations";
+import { SECTION_BG, CARD_BASE, PILL_BADGE } from "../lib/styles";
 
 interface ProjectProps {
   darkMode: boolean;
 }
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
-};
 
 const sectionTexts: Record<Language, {
   titleBefore: string;
@@ -75,20 +71,17 @@ const Projets: React.FC<ProjectProps> = () => {
   return (
     <section
       id="projet"
-      className="pt-0 pb-12 xs:pb-16 sm:pb-20 md:pb-24 bg-gradient-to-b from-white via-green-50 to-white 
-                 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 transition-colors duration-500"
+      className={`pt-0 pb-12 xs:pb-16 sm:pb-20 md:pb-24 ${SECTION_BG}`}
     >
       <div className="max-w-7xl mx-auto px-2 xs:px-4 sm:px-6 lg:px-8">
         <motion.h2
           {...fadeInUp}
           className="flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-3 md:gap-4 text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 xs:mb-4 sm:mb-6 text-gray-900 dark:text-white px-2"
         >
-
           <span className="leading-tight">
             {t.titleBefore}{" "}
-            <span className="text-green-600 dark:text-green-400">{t.titleHighlight}</span>
+            <span className="text-brand-600 dark:text-brand-400">{t.titleHighlight}</span>
           </span>
-
         </motion.h2>
 
         <motion.p
@@ -109,9 +102,9 @@ const Projets: React.FC<ProjectProps> = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group relative"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl xs:rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl xs:rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
 
-                <div className="relative h-full rounded-2xl xs:rounded-3xl overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-green-400 dark:hover:border-green-500 transition-all duration-300 flex flex-col">
+                <div className={`relative h-full ${CARD_BASE} rounded-2xl xs:rounded-3xl flex flex-col`}>
                   {/* Image avec overlay */}
                   <div className="relative w-full h-48 xs:h-56 sm:h-64 md:h-72 overflow-hidden">
                     <motion.img
@@ -131,7 +124,7 @@ const Projets: React.FC<ProjectProps> = () => {
                           key={i}
                           className={`h-1 xs:h-1.5 rounded-full transition-all duration-300 ${
                             i === imageIndexes[index]
-                              ? "w-6 xs:w-8 bg-green-400"
+                              ? "w-6 xs:w-8 bg-brand-400"
                               : "w-1 xs:w-1.5 bg-white/50"
                           }`}
                         />
@@ -141,7 +134,7 @@ const Projets: React.FC<ProjectProps> = () => {
 
                   {/* Contenu */}
                   <div className="flex-1 p-4 xs:p-5 sm:p-6 md:p-8 flex flex-col">
-                    <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 xs:mb-3 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors leading-tight">
+                    <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 xs:mb-3 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors leading-tight">
                       {tr.title}
                     </h3>
 
@@ -149,7 +142,6 @@ const Projets: React.FC<ProjectProps> = () => {
                       {tr.desc}
                     </p>
 
-                    {/* Technologies */}
                     <div className="flex flex-wrap gap-1.5 xs:gap-2 mb-4 xs:mb-5 sm:mb-6">
                       {project.stack.map((tech, i) => (
                         <motion.span
@@ -157,17 +149,13 @@ const Projets: React.FC<ProjectProps> = () => {
                           initial={{ opacity: 0, scale: 0.8 }}
                           whileInView={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.3, delay: i * 0.05 }}
-                          className="px-2 xs:px-2.5 sm:px-3 py-1 xs:py-1.5 text-xs font-medium bg-gradient-to-r from-green-50 to-green-100 text-green-700 
-                                     dark:from-green-900/30 dark:to-green-800/30 dark:text-green-300 
-                                     rounded-full border border-green-200 dark:border-green-800
-                                     hover:scale-105 transition-transform cursor-default"
+                          className={`${PILL_BADGE} text-xs font-medium hover:scale-105 transition-transform cursor-default py-1 xs:py-1.5 px-2 xs:px-2.5 sm:px-3`}
                         >
                           {tech}
                         </motion.span>
                       ))}
                     </div>
 
-                    {/* Boutons */}
                     <div className="flex flex-col xs:flex-row flex-wrap gap-2 xs:gap-2.5 sm:gap-3">
                       <motion.a
                         href={project.github}
@@ -180,10 +168,7 @@ const Projets: React.FC<ProjectProps> = () => {
                                    hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 
                                    transition-all shadow-lg hover:shadow-xl group/btn"
                       >
-                        <Github
-                          size={16}
-                          className="xs:w-[18px] xs:h-[18px] group-hover/btn:rotate-12 transition-transform flex-shrink-0"
-                        />
+                        <Github size={16} className="xs:w-[18px] xs:h-[18px] group-hover/btn:rotate-12 transition-transform flex-shrink-0" />
                         <span className="truncate">{t.codeSource}</span>
                       </motion.a>
 
@@ -194,16 +179,13 @@ const Projets: React.FC<ProjectProps> = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="flex-1 min-w-[120px] xs:min-w-[140px] flex items-center justify-center gap-1.5 xs:gap-2 px-3 xs:px-4 sm:px-5 py-2 xs:py-2.5 sm:py-3 text-xs xs:text-sm font-semibold 
-                                   bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg xs:rounded-xl
-                                   hover:from-green-600 hover:to-green-700
+                                   bg-gradient-to-r from-brand-500 to-brand-600 text-white rounded-lg xs:rounded-xl
+                                   hover:from-brand-600 hover:to-brand-700
                                    transition-all shadow-lg hover:shadow-xl group/btn"
                       >
                         <Globe size={16} className="xs:w-[18px] xs:h-[18px] flex-shrink-0" />
                         <span className="truncate">{t.viewOnline}</span>
-                        <ArrowUpRight
-                          size={14}
-                          className="xs:w-4 xs:h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform flex-shrink-0"
-                        />
+                        <ArrowUpRight size={14} className="xs:w-4 xs:h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform flex-shrink-0" />
                       </motion.a>
                     </div>
                   </div>
@@ -214,7 +196,7 @@ const Projets: React.FC<ProjectProps> = () => {
         </div>
 
         <motion.div {...fadeInUp} className="mt-10 xs:mt-12 sm:mt-16 md:mt-20 text-center px-2 xs:px-4">
-          <div className="inline-flex items-center gap-2 xs:gap-2.5 sm:gap-3 px-3 xs:px-4 sm:px-6 md:px-8 py-2 xs:py-3 sm:py-4 rounded-full bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border border-green-200 dark:border-green-800">
+          <div className={`${PILL_BADGE} px-3 xs:px-4 sm:px-6 md:px-8 py-2 xs:py-3 sm:py-4`}>
             <p className="text-xs xs:text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300">
               {t.badge}
             </p>
