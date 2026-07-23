@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { navbarLinks, navbarConfig } from "../data/navbarData";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import { staggerContainer } from "../lib/animations";
 import LanguageSwitcher from "./LanguageSwitcher";
 

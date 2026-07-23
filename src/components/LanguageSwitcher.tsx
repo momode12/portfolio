@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Languages, Globe } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext";
-import type { Language } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
+import type { Language } from "../types/common";
 
 const languages: { code: Language; label: string; countryCode: string }[] = [
   { code: "fr", label: "Français", countryCode: "fr" },
@@ -84,7 +84,7 @@ const LanguageSwitcher = () => {
                 onClick={() => handleSelect(lang.code)}
                 className={`w-full flex items-center gap-2.5 px-3 py-2 text-sm text-left transition cursor-pointer ${
                   language === lang.code
-                    ? "bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 font-semibold"
+                    ? "bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 font-semibold"
                     : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                 }`}
               >

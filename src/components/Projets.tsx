@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Globe, ArrowUpRight } from "lucide-react";
 import { projects } from "../data/projectData";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import type { Language } from "../types/common";
 import { fadeInUp } from "../lib/animations";
 import { SECTION_BG, CARD_BASE, PILL_BADGE } from "../lib/styles";

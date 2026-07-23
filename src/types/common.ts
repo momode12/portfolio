@@ -1,5 +1,4 @@
 import type { LucideIcon } from "lucide-react";
-import type { Language } from "../context/LanguageContext";
 
-export type { Language };
+export type Language = "fr" | "en" | "de";
 export type Icon = LucideIcon | React.ElementType;

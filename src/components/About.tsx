@@ -6,7 +6,7 @@ import type { LucideIcon } from "lucide-react";
 import profilePic from "../assets/project/soutenance.jpg";
 import cvFile from "../assets/CV/CV_HERITIANA_Julien_Data_Scientist.pdf";
 import { expertises, socialLinks, aboutTexts } from "../data/aboutData";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import { fadeInLeft, fadeInRight, buttonHover } from "../lib/animations";
 import { GRADIENT_TEXT, BUTTON_PRIMARY, BUTTON_OUTLINE } from "../lib/styles";
 

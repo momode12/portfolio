@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { aproposTexts } from "../data/aproposData";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import { fadeInDown, scaleIn } from "../lib/animations";
 import { SECTION_BG, DECOR_BLOB } from "../lib/styles";
 

@@ -1,19 +1,18 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
-
-export type Language = "fr" | "en" | "de";  // ⚠️ le mot-clé "export" doit être ICI
+import type { Language } from "../types/common";
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguageState] = useState<Language>(() => {
     const saved = localStorage.getItem("language");
-    return (saved as Language) || "en";
+    return (saved as Language) || "fr";
   });
 
   useEffect(() => {
@@ -25,10 +24,4 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </LanguageContext.Provider>
   );
-};
-
-export const useLanguage = () => {
-  const ctx = useContext(LanguageContext);
-  if (!ctx) throw new Error("useLanguage doit être utilisé dans un LanguageProvider");
-  return ctx;
 };

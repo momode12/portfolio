@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Home, ArrowLeft } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import type { Language } from "../types/common";
 import { fadeInUp } from "../lib/animations";
 

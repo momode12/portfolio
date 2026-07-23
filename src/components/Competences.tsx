@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { competences } from "../data/competenceData";
 import type { Comp } from "../data/competenceData";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import { fadeInUp, iconSpin } from "../lib/animations";
 import { SECTION_BG, CARD_BASE, CARD_TOP_BAR, GRADIENT_TEXT, PILL_BADGE } from "../lib/styles";
 

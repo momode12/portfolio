@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { services } from "../data/serviceData";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import type { Language } from "../types/common";
 import { fadeInDown, withDelay, iconSpin } from "../lib/animations";
 import { SECTION_BG, CARD_BASE, CARD_TOP_BAR, GRADIENT_TEXT, DECOR_BLOB } from "../lib/styles";

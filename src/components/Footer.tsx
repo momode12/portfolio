@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { contactInfos, copyrightText, footerTexts } from "../data/dataFooter";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import { fadeInDown, fadeInUp } from "../lib/animations";
 import { SECTION_BG, BUTTON_PRIMARY, DECOR_BLOB } from "../lib/styles";
 

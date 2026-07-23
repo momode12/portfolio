@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Briefcase, Calendar, MapPin, GraduationCap, Award, Eye } from "lucide-react";
 import { experiences, educations } from "../data/experienceData";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import type { Language } from "../types/common";
 import { fadeInDown, fadeInLeft, withDelay, iconSpin, cardHover } from "../lib/animations";
 import { SECTION_BG, CARD_BASE, CARD_TOP_BAR, GRADIENT_TEXT, PILL_BADGE } from "../lib/styles";
