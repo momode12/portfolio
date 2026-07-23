@@ -1,8 +1,7 @@
-/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 
-type Language = "fr" | "en" | "de";
+export type Language = "fr" | "en" | "de";  // ⚠️ le mot-clé "export" doit être ICI
 
 interface LanguageContextType {
   language: Language;
@@ -14,7 +13,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguageState] = useState<Language>(() => {
     const saved = localStorage.getItem("language");
-    return (saved as Language) || "en"; //par def
+    return (saved as Language) || "en";
   });
 
   useEffect(() => {
