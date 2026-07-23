@@ -3,7 +3,7 @@
 Portfolio personnel développé en **React + TypeScript + Vite**, présentant mon parcours, mes compétences, mes projets et mes expériences académiques et professionnelles. Le site est multilingue (FR / EN / DE), supporte le mode sombre, et propose un formulaire de contact fonctionnel via EmailJS.
 
 🔗 Démo en ligne : *(ajouter le lien de déploiement ici)*
-
+https://julien-heritiana.vercel.app/
 ---
 
 ## 📋 Sommaire
