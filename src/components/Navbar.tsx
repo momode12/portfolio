@@ -69,10 +69,10 @@ const Navbar: React.FC<NavbarProps> = ({
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 py-3 lg:py-4 flex items-center justify-between">
         {/* Logo */}
         <motion.div
-          className="text-sm xs:text-base sm:text-lg md:text-xl font-bold flex items-center cursor-pointer select-none whitespace-nowrap"
+          className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl font-bold flex items-center cursor-pointer select-none whitespace-nowrap"
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -94,7 +94,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
         {/* Menu Desktop */}
         <motion.ul
-          className="hidden md:flex items-center space-x-4 lg:space-x-6 text-gray-700 dark:text-gray-300 font-medium"
+          className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8 text-gray-700 dark:text-gray-300 font-medium lg:text-lg"
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
@@ -104,7 +104,7 @@ const Navbar: React.FC<NavbarProps> = ({
               <button
                 onClick={() => scrollToSection(link.id)}
                 className={`
-                  px-3 py-2 rounded-lg transition duration-200 cursor-pointer
+                  px-3 lg:px-4 py-2 lg:py-2.5 rounded-lg transition duration-200 cursor-pointer
                   ${
                     activeSection === link.id
                       ? "bg-gray-200 dark:bg-gray-700 text-brand-600 dark:text-brand-400 font-semibold"
@@ -120,7 +120,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
         {/* Boutons Desktop */}
         <motion.div
-          className="hidden md:flex items-center space-x-4 flex-shrink-0"
+          className="hidden md:flex items-center space-x-4 lg:space-x-5 flex-shrink-0"
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
@@ -134,7 +134,7 @@ const Navbar: React.FC<NavbarProps> = ({
               onMouseLeave={() => setShowTooltip(false)}
               onFocus={() => setShowTooltip(true)}
               onBlur={() => setShowTooltip(false)}
-              className="p-2.5 cursor-pointer rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+              className="p-2.5 lg:p-3 cursor-pointer rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
               aria-label={
                 darkMode
                   ? config.tooltips.lightMode
@@ -142,9 +142,9 @@ const Navbar: React.FC<NavbarProps> = ({
               }
             >
               {darkMode ? (
-                <Sun size={20} className="text-yellow-400" />
+                <Sun size={20} className="text-yellow-400 lg:w-6 lg:h-6" />
               ) : (
-                <Moon size={20} className="text-gray-600" />
+                <Moon size={20} className="text-gray-600 lg:w-6 lg:h-6" />
               )}
             </button>
 
@@ -154,7 +154,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   initial={{ opacity: 0, y: -5 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -5 }}
-                  className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gray-800 dark:bg-gray-700 text-white text-xs rounded-lg whitespace-nowrap shadow-lg z-50"
+                  className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gray-800 dark:bg-gray-700 text-white text-xs lg:text-sm rounded-lg whitespace-nowrap shadow-lg z-50"
                 >
                   {darkMode
                     ? config.tooltips.lightMode
@@ -167,7 +167,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
           <button
             onClick={() => scrollToSection("footer")}
-            className="px-5 cursor-pointer py-2.5 bg-brand-500 hover:bg-brand-600 dark:bg-brand-600 dark:hover:bg-brand-700 text-white font-semibold rounded-lg transition"
+            className="px-5 lg:px-6 cursor-pointer py-2.5 lg:py-3 bg-brand-500 hover:bg-brand-600 dark:bg-brand-600 dark:hover:bg-brand-700 text-white font-semibold lg:text-lg rounded-lg transition"
           >
             {config.buttons.contact}
           </button>

@@ -42,17 +42,17 @@ const Service: React.FC<ServiceProps> = () => {
   return (
     <section
       id="service"
-      className={`pt-0 pb-12 sm:pb-16 md:pb-20 lg:pb-24 ${SECTION_BG}`}
+      className={`pt-0 pb-12 sm:pb-16 md:pb-20 lg:pb-24 xl:pb-28 2xl:pb-32 ${SECTION_BG}`}
     >
-      <div className={`${DECOR_BLOB} top-0 left-2 sm:left-10 w-40 h-40 sm:w-72 sm:h-72`} />
-      <div className={`${DECOR_BLOB} bottom-10 sm:bottom-20 right-2 sm:right-10 w-48 h-48 sm:w-96 sm:h-96 dark:bg-brand-400/5`} />
+      <div className={`${DECOR_BLOB} top-0 left-2 sm:left-10 w-40 h-40 sm:w-72 sm:h-72 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem]`} />
+      <div className={`${DECOR_BLOB} bottom-10 sm:bottom-20 right-2 sm:right-10 w-48 h-48 sm:w-96 sm:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] dark:bg-brand-400/5`} />
 
       <div className="relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeInDown} className="text-center mb-12 sm:mb-14 md:mb-16">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 2xl:px-24">
+          <motion.div {...fadeInDown} className="text-center mb-12 sm:mb-14 md:mb-16 lg:mb-20">
             <motion.h2
               {...fadeInDown}
-              className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-white flex-wrap"
+              className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 lg:mb-8 text-gray-900 dark:text-white flex-wrap"
             >
               <span>
                 {t.titleBefore}{" "}
@@ -60,12 +60,12 @@ const Service: React.FC<ServiceProps> = () => {
               </span>
             </motion.h2>
 
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto px-4">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-3xl lg:max-w-4xl mx-auto px-4">
               {t.subtitle}
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-7 xl:gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
               const tr = service.translations[language];
@@ -83,19 +83,19 @@ const Service: React.FC<ServiceProps> = () => {
                   <div className={`relative h-full ${CARD_BASE} rounded-2xl sm:rounded-3xl`}>
                     <div className={CARD_TOP_BAR} />
 
-                    <div className="p-5 sm:p-6">
+                    <div className="p-5 sm:p-6 lg:p-7">
                       <motion.div
                         {...iconSpin}
-                        className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center mb-4 sm:mb-5 shadow-lg"
+                        className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-16 lg:h-16 xl:w-14 xl:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center mb-4 sm:mb-5 lg:mb-6 shadow-lg"
                       >
-                        <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
+                        <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-8 lg:h-8 xl:w-7 xl:h-7 text-white" />
                       </motion.div>
 
-                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                      <h3 className="text-lg sm:text-xl lg:text-xl xl:text-lg font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                         {tr.title}
                       </h3>
 
-                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-5 leading-relaxed">
+                      <p className="text-sm sm:text-base lg:text-base xl:text-sm text-gray-600 dark:text-gray-300 mb-4 sm:mb-5 leading-relaxed">
                         {tr.description}
                       </p>
 

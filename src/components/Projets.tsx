@@ -71,12 +71,12 @@ const Projets: React.FC<ProjectProps> = () => {
   return (
     <section
       id="projet"
-      className={`pt-0 pb-12 xs:pb-16 sm:pb-20 md:pb-24 ${SECTION_BG}`}
+      className={`pt-0 pb-12 xs:pb-16 sm:pb-20 md:pb-24 lg:pb-28 xl:pb-32 ${SECTION_BG}`}
     >
-      <div className="max-w-7xl mx-auto px-2 xs:px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-2 xs:px-4 sm:px-6 lg:px-10 xl:px-16 2xl:px-24">
         <motion.h2
           {...fadeInUp}
-          className="flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-3 md:gap-4 text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 xs:mb-4 sm:mb-6 text-gray-900 dark:text-white px-2"
+          className="flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-3 md:gap-4 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-center mb-3 xs:mb-4 sm:mb-6 lg:mb-8 text-gray-900 dark:text-white px-2"
         >
           <span className="leading-tight">
             {t.titleBefore}{" "}
@@ -87,12 +87,12 @@ const Projets: React.FC<ProjectProps> = () => {
         <motion.p
           {...fadeInUp}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-center text-xs xs:text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300 mb-8 xs:mb-10 sm:mb-12 md:mb-16 max-w-3xl mx-auto px-2 xs:px-4"
+          className="text-center text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 dark:text-gray-300 mb-8 xs:mb-10 sm:mb-12 md:mb-16 lg:mb-20 max-w-3xl lg:max-w-4xl mx-auto px-2 xs:px-4"
         >
           {t.subtitle}
         </motion.p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 xs:gap-5 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10">
           {projects.map((project, index) => {
             const tr = project.translations[language];
             return (
@@ -106,7 +106,7 @@ const Projets: React.FC<ProjectProps> = () => {
 
                 <div className={`relative h-full ${CARD_BASE} rounded-2xl xs:rounded-3xl flex flex-col`}>
                   {/* Image avec overlay */}
-                  <div className="relative w-full h-48 xs:h-56 sm:h-64 md:h-72 overflow-hidden">
+                  <div className="relative w-full h-48 xs:h-56 sm:h-64 md:h-72 lg:h-64 xl:h-56 overflow-hidden">
                     <motion.img
                       key={imageIndexes[index]}
                       src={project.images[imageIndexes[index]]}
@@ -133,12 +133,12 @@ const Projets: React.FC<ProjectProps> = () => {
                   </div>
 
                   {/* Contenu */}
-                  <div className="flex-1 p-4 xs:p-5 sm:p-6 md:p-8 flex flex-col">
-                    <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 xs:mb-3 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors leading-tight">
+                  <div className="flex-1 p-4 xs:p-5 sm:p-6 md:p-8 lg:p-6 xl:p-7 flex flex-col">
+                    <h3 className="text-lg xs:text-xl sm:text-2xl lg:text-xl xl:text-2xl font-bold text-gray-900 dark:text-white mb-2 xs:mb-3 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors leading-tight">
                       {tr.title}
                     </h3>
 
-                    <p className="text-xs xs:text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-4 xs:mb-5 sm:mb-6 flex-1">
+                    <p className="text-xs xs:text-sm sm:text-base lg:text-sm xl:text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-4 xs:mb-5 sm:mb-6 flex-1">
                       {tr.desc}
                     </p>
 
@@ -195,9 +195,9 @@ const Projets: React.FC<ProjectProps> = () => {
           })}
         </div>
 
-        <motion.div {...fadeInUp} className="mt-10 xs:mt-12 sm:mt-16 md:mt-20 text-center px-2 xs:px-4">
-          <div className={`${PILL_BADGE} px-3 xs:px-4 sm:px-6 md:px-8 py-2 xs:py-3 sm:py-4`}>
-            <p className="text-xs xs:text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300">
+        <motion.div {...fadeInUp} className="mt-10 xs:mt-12 sm:mt-16 md:mt-20 lg:mt-24 text-center px-2 xs:px-4">
+          <div className={`${PILL_BADGE} px-3 xs:px-4 sm:px-6 md:px-8 lg:px-10 py-2 xs:py-3 sm:py-4 lg:py-5`}>
+            <p className="text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-gray-700 dark:text-gray-300">
               {t.badge}
             </p>
           </div>

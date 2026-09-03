@@ -38,8 +38,6 @@ const App = () => {
   const [activeSection, setActiveSection] = useState("accueil");
   const [notFound, setNotFound] = useState(isUnknownHash);
 
-  const sectionClass = "mt-[-20px] pt-[20px]";
-
   /** ============================
    *  ÉCOUTE DES CHANGEMENTS DE HASH
    *  (navigation bouton retour/suivant)
@@ -121,6 +119,10 @@ const App = () => {
 
   /** ============================
    *  RENDER NORMAL
+   *  Chaque composant (About, Apropos, ...) possède déjà sa propre
+   *  balise <section id="..."> en interne : on ne la double plus ici,
+   *  pour éviter des id dupliqués dans le DOM (invalide en HTML et
+   *  source de bugs sur document.getElementById / offsetTop).
    * ============================ */
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
@@ -133,33 +135,13 @@ const App = () => {
       />
 
       <main className="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <section id="accueil" className={sectionClass}>
-          <About darkMode={darkMode} />
-        </section>
-
-        <section id="apropos" className={sectionClass}>
-          <Apropos darkMode={darkMode} />
-        </section>
-
-        <section id="projet" className={sectionClass}>
-          <Projets darkMode={darkMode} />
-        </section>
-
-        <section id="competence" className={sectionClass}>
-          <Competences darkMode={darkMode} />
-        </section>
-
-        <section id="experience" className={sectionClass}>
-          <Experience darkMode={darkMode} />
-        </section>
-
-        <section id="service" className={sectionClass}>
-          <Service darkMode={darkMode} />
-        </section>
-
-        <section id="footer" className={sectionClass}>
-          <Footer darkMode={darkMode} />
-        </section>
+        <About darkMode={darkMode} />
+        <Apropos darkMode={darkMode} />
+        <Projets darkMode={darkMode} />
+        <Competences darkMode={darkMode} />
+        <Experience darkMode={darkMode} />
+        <Service darkMode={darkMode} />
+        <Footer darkMode={darkMode} />
       </main>
     </div>
   );

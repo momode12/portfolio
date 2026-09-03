@@ -39,13 +39,13 @@ const Competences: React.FC<CompetenceProps> = () => {
   return (
     <section
       id="competence"
-      className={`pt-0 pb-12 sm:pb-16 md:pb-20 lg:pb-24 ${SECTION_BG}`}
+      className={`pt-0 pb-12 sm:pb-16 md:pb-20 lg:pb-24 xl:pb-28 2xl:pb-32 ${SECTION_BG}`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 2xl:px-24">
         {/* Titre */}
         <motion.h2
           {...fadeInUp}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 sm:mb-6 text-gray-900 dark:text-white flex items-center justify-center gap-2 sm:gap-3 flex-wrap"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-center mb-4 sm:mb-6 lg:mb-8 text-gray-900 dark:text-white flex items-center justify-center gap-2 sm:gap-3 flex-wrap"
         >
           <span>
             {texts.titleBefore}{" "}
@@ -56,13 +56,13 @@ const Competences: React.FC<CompetenceProps> = () => {
         <motion.p
           {...fadeInUp}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-center text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 mb-10 sm:mb-12 md:mb-16 max-w-2xl mx-auto"
+          className="text-center text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 mb-10 sm:mb-12 md:mb-16 lg:mb-20 max-w-2xl lg:max-w-3xl mx-auto"
         >
           {texts.subtitle}
         </motion.p>
 
         {/* Grille */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-5 lg:gap-6 xl:gap-7">
           {comps.map((comp: Comp, i) => {
             const Icon = comp.icon;
             return (
@@ -77,20 +77,20 @@ const Competences: React.FC<CompetenceProps> = () => {
                 <div className={`relative h-full ${CARD_BASE} rounded-2xl border`}>
                   <div className={CARD_TOP_BAR} />
 
-                  <div className="p-4 sm:p-5">
-                    <div className="flex items-center gap-3 mb-4">
+                  <div className="p-4 sm:p-5 lg:p-6 xl:p-7">
+                    <div className="flex items-center gap-3 lg:gap-4 mb-4 lg:mb-5">
                       <motion.div
                         {...iconSpin}
-                        className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center flex-shrink-0 shadow-md"
+                        className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 xl:w-14 xl:h-14 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center flex-shrink-0 shadow-md"
                       >
-                        <Icon size={20} className="text-white" />
+                        <Icon size={20} className="text-white lg:w-6 lg:h-6 xl:w-7 xl:h-7" />
                       </motion.div>
-                      <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white leading-tight">
+                      <h3 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold text-gray-900 dark:text-white leading-tight">
                         {comp.title}
                       </h3>
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-2 lg:space-y-3">
                       {comp.techs.map((tech, j) => (
                         <motion.div
                           key={j}
@@ -99,14 +99,14 @@ const Competences: React.FC<CompetenceProps> = () => {
                           transition={{ duration: 0.3, delay: j * 0.06 }}
                         >
                           <div className="flex items-center justify-between mb-0.5">
-                            <span className="text-xs text-gray-700 dark:text-gray-300 font-medium leading-tight">
+                            <span className="text-xs lg:text-sm text-gray-700 dark:text-gray-300 font-medium leading-tight">
                               {tech.name}
                             </span>
-                            <span className="text-[10px] text-gray-400 dark:text-gray-500 ml-2 flex-shrink-0">
+                            <span className="text-[10px] lg:text-xs text-gray-400 dark:text-gray-500 ml-2 flex-shrink-0">
                               {tech.grade}%
                             </span>
                           </div>
-                          <div className="h-1 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+                          <div className="h-1 lg:h-1.5 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
                             <motion.div
                               initial={{ width: 0 }}
                               whileInView={{ width: `${tech.grade}%` }}
@@ -125,9 +125,9 @@ const Competences: React.FC<CompetenceProps> = () => {
         </div>
 
         {/* Footer badge */}
-        <motion.div {...fadeInUp} className="mt-12 sm:mt-16 text-center">
-          <div className={`${PILL_BADGE} px-5 sm:px-8 py-3 sm:py-4`}>
-            <p className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">
+        <motion.div {...fadeInUp} className="mt-12 sm:mt-16 lg:mt-20 text-center">
+          <div className={`${PILL_BADGE} px-5 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5`}>
+            <p className="text-xs sm:text-sm lg:text-base font-medium text-gray-700 dark:text-gray-300">
               {texts.footerBadge}
             </p>
           </div>

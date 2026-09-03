@@ -41,18 +41,18 @@ const About: React.FC<AboutProps> = () => {
   return (
     <section
       id="accueil"
-      className="pt-24 pb-6 xs:pt-28 xs:pb-8 sm:py-16 md:py-20 lg:py-24 px-2 xs:px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-green-50 to-white 
+      className="min-h-screen flex items-center pt-24 pb-6 xs:pt-28 xs:pb-8 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 px-2 xs:px-4 sm:px-6 lg:px-10 xl:px-16 2xl:px-24 bg-gradient-to-b from-white via-green-50 to-white 
                  dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 
                  transition-colors duration-500 overflow-hidden"
     >
-      <div className="absolute top-10 sm:top-20 left-2 sm:left-10 w-48 h-48 sm:w-72 md:w-96 sm:h-72 md:h-96 bg-brand-300/20 dark:bg-brand-500/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-10 sm:top-20 left-2 sm:left-10 w-48 h-48 sm:w-72 md:w-96 lg:w-[28rem] xl:w-[32rem] sm:h-72 md:h-96 lg:h-[28rem] xl:h-[32rem] bg-brand-300/20 dark:bg-brand-500/10 rounded-full blur-3xl animate-pulse" />
       <div
-        className="absolute bottom-10 sm:bottom-20 right-2 sm:right-10 w-40 h-40 sm:w-64 md:w-80 sm:h-64 md:h-80 bg-blue-300/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse"
+        className="absolute bottom-10 sm:bottom-20 right-2 sm:right-10 w-40 h-40 sm:w-64 md:w-80 lg:w-96 xl:w-[26rem] sm:h-64 md:h-80 lg:h-96 xl:h-[26rem] bg-blue-300/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse"
         style={{ animationDelay: "1s" }}
       />
 
-      <div className="flex items-center justify-center relative z-10">
-        <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-6 xs:gap-8 sm:gap-10 md:gap-12 items-center">
+      <div className="flex items-center justify-center relative z-10 w-full">
+        <div className="max-w-6xl xl:max-w-7xl 2xl:max-w-[1400px] w-full grid grid-cols-1 md:grid-cols-2 gap-6 xs:gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
           {/* Section Image */}
           <motion.div
             {...fadeInLeft}
@@ -67,30 +67,30 @@ const About: React.FC<AboutProps> = () => {
                 <img
                   src={profilePic}
                   alt={texts.imageAlt}
-                  className="w-45 h-45 xs:w-40 xs:h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-4 border-white dark:border-gray-700 transition-all duration-500 group-hover:scale-105 group-hover:border-brand-400 dark:group-hover:border-brand-500 relative z-10"
+                  className="w-45 h-45 xs:w-40 xs:h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96 rounded-full object-cover shadow-2xl border-4 border-white dark:border-gray-700 transition-all duration-500 group-hover:scale-105 group-hover:border-brand-400 dark:group-hover:border-brand-500 relative z-10"
                 />
 
                 <motion.div
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 bg-gradient-to-br from-brand-500 to-brand-600 text-white p-2 xs:p-3 sm:p-4 rounded-full shadow-xl z-20"
+                  className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 bg-gradient-to-br from-brand-500 to-brand-600 text-white p-2 xs:p-3 sm:p-4 lg:p-5 rounded-full shadow-xl z-20"
                 >
-                  <GraduationCap className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
+                  <GraduationCap className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" />
                 </motion.div>
               </div>
             </div>
 
-            <div className="mt-4 xs:mt-5 sm:mt-6 md:mt-8 flex flex-wrap gap-2 sm:gap-3 justify-center md:justify-start">
+            <div className="mt-4 xs:mt-5 sm:mt-6 md:mt-8 lg:mt-10 flex flex-wrap gap-2 sm:gap-3 lg:gap-4 justify-center md:justify-start">
               <motion.span
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="px-3 xs:px-4 sm:px-5 py-1.5 xs:py-2 sm:py-2.5 bg-gradient-to-r from-brand-100 to-brand-200 dark:from-brand-900 dark:to-brand-800 text-brand-700 dark:text-brand-300 rounded-full text-xs sm:text-sm font-bold flex items-center gap-1.5 sm:gap-2 shadow-lg border border-brand-200 dark:border-brand-700 cursor-default"
+                className="px-3 xs:px-4 sm:px-5 lg:px-6 py-1.5 xs:py-2 sm:py-2.5 lg:py-3 bg-gradient-to-r from-brand-100 to-brand-200 dark:from-brand-900 dark:to-brand-800 text-brand-700 dark:text-brand-300 rounded-full text-xs sm:text-sm lg:text-base font-bold flex items-center gap-1.5 sm:gap-2 shadow-lg border border-brand-200 dark:border-brand-700 cursor-default"
               >
-                <GraduationCap className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-[18px] sm:h-[18px]" /> {texts.badges.student}
+                <GraduationCap className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-[18px] sm:h-[18px] lg:w-5 lg:h-5" /> {texts.badges.student}
               </motion.span>
 
               <motion.span
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="px-3 xs:px-4 sm:px-5 py-1.5 xs:py-2 sm:py-2.5 bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 text-blue-700 dark:text-blue-300 rounded-full text-xs sm:text-sm font-bold shadow-lg border border-blue-200 dark:border-blue-700 cursor-default"
+                className="px-3 xs:px-4 sm:px-5 lg:px-6 py-1.5 xs:py-2 sm:py-2.5 lg:py-3 bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 text-blue-700 dark:text-blue-300 rounded-full text-xs sm:text-sm lg:text-base font-bold shadow-lg border border-blue-200 dark:border-blue-700 cursor-default"
               >
                 {texts.badges.developer}
               </motion.span>
@@ -101,7 +101,7 @@ const About: React.FC<AboutProps> = () => {
           <motion.div
             {...fadeInRight}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-3 xs:space-y-4 sm:space-y-5 md:space-y-6 order-2 md:order-2 text-center md:text-left"
+            className="space-y-3 xs:space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-7 xl:space-y-8 order-2 md:order-2 text-center md:text-left"
           >
             <div className="space-y-1.5 xs:space-y-2 sm:space-y-3">
               <motion.div
@@ -110,14 +110,14 @@ const About: React.FC<AboutProps> = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="flex items-center gap-1.5 xs:gap-2 justify-center md:justify-start flex-wrap"
               >
-                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white leading-tight">
                   {texts.name}{" "}
                   <span className={GRADIENT_TEXT}>{texts.surname}</span>
                 </h1>
               </motion.div>
             </div>
 
-            <div className="text-base xs:text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-medium h-6 xs:h-7 sm:h-8 min-h-[24px] xs:min-h-[28px] sm:min-h-[32px]">
+            <div className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 dark:text-gray-300 font-medium h-6 xs:h-7 sm:h-8 lg:h-10 min-h-[24px] xs:min-h-[28px] sm:min-h-[32px] lg:min-h-[40px]">
               <Typewriter
                 key={language}
                 words={words}
@@ -130,33 +130,33 @@ const About: React.FC<AboutProps> = () => {
               />
             </div>
 
-            <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto md:mx-0 text-left md:text-justify md:hyphens-auto">
+            <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl lg:max-w-3xl mx-auto md:mx-0 text-left md:text-justify md:hyphens-auto">
               {texts.description.intro} <span className="text-brand-600 dark:text-brand-400 font-semibold">{texts.description.fullStack}</span> et <span className="text-brand-600 dark:text-brand-400 font-semibold">{texts.description.dataEngineering}</span>. {texts.description.middle} <span className="text-brand-600 dark:text-brand-400 font-semibold">{texts.description.specializations.software}</span>, <span className="text-brand-600 dark:text-brand-400 font-semibold">{texts.description.specializations.dataEng}</span> et <span className="text-brand-600 dark:text-brand-400 font-semibold">{texts.description.specializations.ai}</span>.
             </p>
 
             {/* Boutons */}
-            <div className="flex flex-col sm:flex-row flex-wrap gap-2 xs:gap-3 sm:gap-4 pt-2 xs:pt-3 sm:pt-4 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-2 xs:gap-3 sm:gap-4 lg:gap-5 pt-2 xs:pt-3 sm:pt-4 lg:pt-6 justify-center md:justify-start">
               <motion.a
                 href={cvFile}
                 download="CV_Julien.pdf"
                 {...buttonHover}
-                className={`${BUTTON_PRIMARY} rounded-lg xs:rounded-xl text-xs xs:text-sm sm:text-base px-5 xs:px-6 sm:px-8 py-2.5 xs:py-3 sm:py-4`}
+                className={`${BUTTON_PRIMARY} rounded-lg xs:rounded-xl text-xs xs:text-sm sm:text-base lg:text-lg px-5 xs:px-6 sm:px-8 lg:px-10 py-2.5 xs:py-3 sm:py-4 lg:py-5`}
               >
-                <Download className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 flex-shrink-0" /> {texts.buttons.downloadCV}
+                <Download className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 flex-shrink-0" /> {texts.buttons.downloadCV}
               </motion.a>
 
               <motion.button
                 onClick={() => scrollToSection("apropos")}
                 {...buttonHover}
-                className={`${BUTTON_OUTLINE} rounded-lg xs:rounded-xl text-xs xs:text-sm sm:text-base px-5 xs:px-6 sm:px-8 py-2.5 xs:py-3 sm:py-4 cursor-pointer`}
+                className={`${BUTTON_OUTLINE} rounded-lg xs:rounded-xl text-xs xs:text-sm sm:text-base lg:text-lg px-5 xs:px-6 sm:px-8 lg:px-10 py-2.5 xs:py-3 sm:py-4 lg:py-5 cursor-pointer`}
               >
                 {texts.buttons.learnMore}{" "}
-                <ChevronRight className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                <ChevronRight className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               </motion.button>
             </div>
 
             {/* Liens sociaux */}
-            <div className="flex gap-2 xs:gap-3 sm:gap-4 pt-3 xs:pt-4 sm:pt-6 flex-wrap justify-center md:justify-start">
+            <div className="flex gap-2 xs:gap-3 sm:gap-4 lg:gap-5 pt-3 xs:pt-4 sm:pt-6 lg:pt-8 flex-wrap justify-center md:justify-start">
               {(socialLinks as SocialLink[]).map((social, index) => {
                 const Icon = social.icon;
                 return (
@@ -167,10 +167,10 @@ const About: React.FC<AboutProps> = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.2, rotate: 5, y: -3 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-9 h-9 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700"
+                    className="w-9 h-9 xs:w-10 xs:h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700"
                     style={{ color: social.color }}
                   >
-                    <Icon className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
+                    <Icon className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
                   </motion.a>
                 );
               })}
