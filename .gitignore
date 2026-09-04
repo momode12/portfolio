@@ -1,6 +1,6 @@
 .env
 env/
-*.yaml/
+*.yaml
 # Logs
 logs
 *.log
