@@ -69,10 +69,10 @@ const Navbar: React.FC<NavbarProps> = ({
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 py-3 lg:py-4 flex items-center justify-between">
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-16 py-3 lg:py-4 flex items-center justify-between">
         {/* Logo */}
         <motion.div
-          className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl font-bold flex items-center cursor-pointer select-none whitespace-nowrap"
+          className="text-sm xs:text-base sm:text-lg lg:text-xl xl:text-2xl font-bold flex items-center cursor-pointer select-none whitespace-nowrap flex-shrink-0"
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -92,9 +92,9 @@ const Navbar: React.FC<NavbarProps> = ({
           </span>
         </motion.div>
 
-        {/* Menu Desktop */}
+        {/* Menu Desktop (à partir de lg = 1024px) */}
         <motion.ul
-          className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8 text-gray-700 dark:text-gray-300 font-medium lg:text-lg"
+          className="hidden lg:flex items-center space-x-0.5 xl:space-x-3 2xl:space-x-6 text-gray-700 dark:text-gray-300 font-medium text-sm xl:text-base 2xl:text-lg flex-shrink min-w-0"
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
@@ -104,7 +104,7 @@ const Navbar: React.FC<NavbarProps> = ({
               <button
                 onClick={() => scrollToSection(link.id)}
                 className={`
-                  px-3 lg:px-4 py-2 lg:py-2.5 rounded-lg transition duration-200 cursor-pointer
+                  px-2 xl:px-3 2xl:px-4 py-1.5 xl:py-2 2xl:py-2.5 rounded-lg transition duration-200 cursor-pointer whitespace-nowrap
                   ${
                     activeSection === link.id
                       ? "bg-gray-200 dark:bg-gray-700 text-brand-600 dark:text-brand-400 font-semibold"
@@ -120,7 +120,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
         {/* Boutons Desktop */}
         <motion.div
-          className="hidden md:flex items-center space-x-4 lg:space-x-5 flex-shrink-0"
+          className="hidden lg:flex items-center space-x-1.5 xl:space-x-3 2xl:space-x-5 flex-shrink-0"
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
@@ -134,7 +134,7 @@ const Navbar: React.FC<NavbarProps> = ({
               onMouseLeave={() => setShowTooltip(false)}
               onFocus={() => setShowTooltip(true)}
               onBlur={() => setShowTooltip(false)}
-              className="p-2.5 lg:p-3 cursor-pointer rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+              className="p-2 xl:p-2.5 2xl:p-3 cursor-pointer rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
               aria-label={
                 darkMode
                   ? config.tooltips.lightMode
@@ -142,9 +142,9 @@ const Navbar: React.FC<NavbarProps> = ({
               }
             >
               {darkMode ? (
-                <Sun size={20} className="text-yellow-400 lg:w-6 lg:h-6" />
+                <Sun size={18} className="text-yellow-400 xl:w-5 xl:h-5 2xl:w-6 2xl:h-6" />
               ) : (
-                <Moon size={20} className="text-gray-600 lg:w-6 lg:h-6" />
+                <Moon size={18} className="text-gray-600 xl:w-5 xl:h-5 2xl:w-6 2xl:h-6" />
               )}
             </button>
 
@@ -167,14 +167,14 @@ const Navbar: React.FC<NavbarProps> = ({
 
           <button
             onClick={() => scrollToSection("footer")}
-            className="px-5 lg:px-6 cursor-pointer py-2.5 lg:py-3 bg-brand-500 hover:bg-brand-600 dark:bg-brand-600 dark:hover:bg-brand-700 text-white font-semibold lg:text-lg rounded-lg transition"
+            className="px-3 xl:px-5 2xl:px-6 cursor-pointer py-1.5 xl:py-2.5 2xl:py-3 bg-brand-500 hover:bg-brand-600 dark:bg-brand-600 dark:hover:bg-brand-700 text-white font-semibold text-sm xl:text-base 2xl:text-lg rounded-lg transition whitespace-nowrap"
           >
             {config.buttons.contact}
           </button>
         </motion.div>
 
-        {/* Boutons Mobile */}
-        <div className="md:hidden flex items-center space-x-3 flex-shrink-0">
+        {/* Boutons Mobile (jusqu'à lg = 1024px) */}
+        <div className="lg:hidden flex items-center space-x-3 flex-shrink-0">
           <LanguageSwitcher />
 
           <button
@@ -239,12 +239,12 @@ const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
 
-      {/* Menu Mobile */}
+      {/* Menu Mobile (jusqu'à lg = 1024px) */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             id="mobile-menu"
-            className="md:hidden bg-white dark:bg-gray-900 shadow-lg px-4 py-4 transition-colors duration-300"
+            className="lg:hidden bg-white dark:bg-gray-900 shadow-lg px-4 py-4 transition-colors duration-300"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}

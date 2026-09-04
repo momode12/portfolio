@@ -52,14 +52,14 @@ const Footer: React.FC<FooterProps> = () => {
   };
 
   return (
-    <div className={`pt-0 pb-20 sm:pt-0 sm:pb-24 lg:pb-28 xl:pb-32 ${SECTION_BG}`}>
-      <div className={`${DECOR_BLOB} top-0 left-0 w-96 h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] dark:bg-brand-400/5`} />
-      <div className="absolute bottom-0 right-0 w-96 h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] bg-blue-300/10 dark:bg-blue-400/5 rounded-full blur-3xl" />
+    <div className={`pt-0 pb-20 sm:pt-0 sm:pb-24 ${SECTION_BG}`}>
+      <div className={`${DECOR_BLOB} top-0 left-0 w-96 h-96 dark:bg-brand-400/5`} />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-300/10 dark:bg-blue-400/5 rounded-full blur-3xl" />
 
-      <div className="relative z-10 max-w-5xl xl:max-w-6xl mx-auto text-center px-4 sm:px-6 lg:px-0">
+      <div className="relative z-10 max-w-5xl mx-auto text-center">
         <motion.h2
           {...fadeInDown}
-          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 lg:mb-8 text-gray-900 dark:text-white flex items-center justify-center gap-3 flex-wrap"
+          className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white flex items-center justify-center gap-3 flex-wrap"
         >
           <span>
             {t.titleBefore}{" "}
@@ -69,7 +69,7 @@ const Footer: React.FC<FooterProps> = () => {
           </span>
         </motion.h2>
 
-        <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-400 mb-12 lg:mb-16 max-w-2xl lg:max-w-3xl mx-auto">
+        <p className="text-lg text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
           {t.subtitle}
         </p>
 
@@ -79,16 +79,16 @@ const Footer: React.FC<FooterProps> = () => {
           onSubmit={sendEmail}
           {...fadeInUp}
           className="bg-white dark:bg-gray-800 rounded-3xl shadow-lg border border-gray-200 dark:border-gray-700 
-                     max-w-2xl lg:max-w-3xl mx-auto p-8 sm:p-10 lg:p-12 text-left"
+                     max-w-2xl mx-auto p-8 sm:p-10 text-left"
         >
           {sent && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mb-6 p-4 lg:p-5 bg-brand-100 dark:bg-brand-900/30 border border-brand-400 dark:border-brand-700 rounded-xl flex items-center gap-3"
+              className="mb-6 p-4 bg-brand-100 dark:bg-brand-900/30 border border-brand-400 dark:border-brand-700 rounded-xl flex items-center gap-3"
             >
-              <CheckCircle className="w-5 h-5 lg:w-6 lg:h-6 text-brand-600 dark:text-brand-400" />
-              <p className="text-brand-700 dark:text-brand-300 font-medium lg:text-lg">{t.successMessage}</p>
+              <CheckCircle className="w-5 h-5 text-brand-600 dark:text-brand-400" />
+              <p className="text-brand-700 dark:text-brand-300 font-medium">{t.successMessage}</p>
             </motion.div>
           )}
 
@@ -96,16 +96,16 @@ const Footer: React.FC<FooterProps> = () => {
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mb-6 p-4 lg:p-5 bg-red-100 dark:bg-red-900/30 border border-red-400 dark:border-red-700 rounded-xl flex items-center gap-3"
+              className="mb-6 p-4 bg-red-100 dark:bg-red-900/30 border border-red-400 dark:border-red-700 rounded-xl flex items-center gap-3"
             >
-              <AlertCircle className="w-5 h-5 lg:w-6 lg:h-6 text-red-600 dark:text-red-400" />
-              <p className="text-red-700 dark:text-red-300 font-medium lg:text-lg">{t.errorMessage}</p>
+              <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400" />
+              <p className="text-red-700 dark:text-red-300 font-medium">{t.errorMessage}</p>
             </motion.div>
           )}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 mb-6 lg:mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-sm lg:text-base font-semibold mb-2 lg:mb-3 text-gray-700 dark:text-gray-300">
+              <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">
                 {t.fullName}
               </label>
               <input
@@ -113,8 +113,8 @@ const Footer: React.FC<FooterProps> = () => {
                 name="user_name"
                 required
                 disabled={loading}
-                className="w-full px-4 lg:px-5 py-3 lg:py-4 rounded-xl border border-gray-300 dark:border-gray-600 
-                           bg-transparent text-gray-900 dark:text-gray-100 lg:text-lg
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 
+                           bg-transparent text-gray-900 dark:text-gray-100 
                            focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all
                            disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder={t.fullNamePlaceholder}
@@ -122,7 +122,7 @@ const Footer: React.FC<FooterProps> = () => {
             </div>
 
             <div>
-              <label className="block text-sm lg:text-base font-semibold mb-2 lg:mb-3 text-gray-700 dark:text-gray-300">
+              <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">
                 {t.email}
               </label>
               <input
@@ -130,8 +130,8 @@ const Footer: React.FC<FooterProps> = () => {
                 name="user_email"
                 required
                 disabled={loading}
-                className="w-full px-4 lg:px-5 py-3 lg:py-4 rounded-xl border border-gray-300 dark:border-gray-600 
-                           bg-transparent text-gray-900 dark:text-gray-100 lg:text-lg
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 
+                           bg-transparent text-gray-900 dark:text-gray-100 
                            focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all
                            disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder={t.emailPlaceholder}
@@ -139,8 +139,8 @@ const Footer: React.FC<FooterProps> = () => {
             </div>
           </div>
 
-          <div className="mb-6 lg:mb-8">
-            <label className="block text-sm lg:text-base font-semibold mb-2 lg:mb-3 text-gray-700 dark:text-gray-300">
+          <div className="mb-6">
+            <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">
               {t.message}
             </label>
             <textarea
@@ -148,9 +148,9 @@ const Footer: React.FC<FooterProps> = () => {
               rows={5}
               required
               disabled={loading}
-              className="w-full px-4 lg:px-5 py-3 lg:py-4 rounded-xl
+              className="w-full px-4 py-3 rounded-xl
 border border-gray-300 dark:border-gray-600 
-                           bg-transparent text-gray-900 dark:text-gray-100 lg:text-lg
+                           bg-transparent text-gray-900 dark:text-gray-100 
 placeholder:text-gray-500 dark:placeholder:text-gray-400
 focus:ring-2 focus:ring-brand-500 focus:border-brand-500
 outline-none transition-all
@@ -165,21 +165,21 @@ resize-none"
             whileHover={{ scale: loading ? 1 : 1.05 }}
             whileTap={{ scale: loading ? 1 : 0.95 }}
             disabled={loading}
-            className={`w-full ${BUTTON_PRIMARY} rounded-xl lg:text-lg lg:py-4 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer`}
+            className={`w-full ${BUTTON_PRIMARY} rounded-xl disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer`}
           >
             {loading ? (
               <>
-                <div className="w-5 h-5 lg:w-6 lg:h-6 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                 {t.sending}
               </>
             ) : sent ? (
               <>
-                <CheckCircle size={18} className="lg:w-5 lg:h-5" />
+                <CheckCircle size={18} />
                 {t.sent}
               </>
             ) : (
               <>
-                <Send size={18} className="lg:w-5 lg:h-5" />
+                <Send size={18} />
                 {t.send}
               </>
             )}
@@ -190,18 +190,18 @@ resize-none"
         <motion.div
           {...fadeInUp}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-16 lg:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-10 text-gray-700 dark:text-gray-300"
+          className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 text-gray-700 dark:text-gray-300"
         >
           {infos.map(({ icon: Icon, value }, i) => (
             <div key={i} className="flex flex-col items-center">
-              <Icon className="w-6 h-6 lg:w-8 lg:h-8 text-brand-500 mb-2 lg:mb-3" />
-              <p className="lg:text-lg">{value}</p>
+              <Icon className="w-6 h-6 text-brand-500 mb-2" />
+              <p>{value}</p>
             </div>
           ))}
         </motion.div>
 
         {/* Copyright */}
-        <div className="mt-16 lg:mt-20 pt-6 lg:pt-8 border-t border-gray-200 dark:border-gray-700 text-sm lg:text-base text-gray-500 dark:text-gray-400">
+        <div className="mt-16 pt-6 border-t border-gray-200 dark:border-gray-700 text-sm text-gray-500 dark:text-gray-400">
           {copyrightText[language]}
         </div>
       </div>
